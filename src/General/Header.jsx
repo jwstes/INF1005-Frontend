@@ -33,6 +33,10 @@ function Header() {
                               <a className="nav-link disabled" aria-disabled="true">Disabled</a>
                           </li>
                       </ul>
+                      <form className='d-flex'>
+                        <a href="/register" className='btn btn-primary mr1'>Register</a>
+                        <a href="/login" className='btn btn-primary'>Sign In</a>
+                      </form>
                   </div>
               </div>
           </nav>
