@@ -1,0 +1,127 @@
+/* AboutUs.css */
+
+/* Add styles for carousel controls */
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5%;
+  color: #fff;
+  text-align: center;
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 0.9;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: transparent no-repeat center;
+  background-size: 100%;
+}
+
+.carousel-control-prev-icon {
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23fff" viewBox="0 0 8 8"><path d="M6.5 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z"/></svg>');
+}
+
+.carousel-control-next-icon {
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23fff" viewBox="0 0 8 8"><path d="M1.5 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z"/></svg>');
+}
+
+/* End of carousel controls styles */
+
+/* Other existing styles remain unchanged */
+.promotionBanner {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 40px; /* Increased gap */
+}
+
+.bannerRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
+
+.promotionalItem {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.alignCenter {
+  display: grid;
+  justify-items: center;
+}
+
+.videoBanner {
+  max-width: 100%;
+  height: auto;
+}
+
+.historyInnovation {
+  padding: 20px;
+  margin-top: 40px; /* Increased margin */
+}
+
+.carouselContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-image {
+  height: 100px; /* Adjust the height as needed */
+  width:100px;
+}
+
+/* AboutUs.css */
+
+/* AboutUs.css */
+/* AboutUs.css */
+.aboutUsFeature {
+  position: relative; /* Add position relative */
+  padding: 20px;
+  text-align: center;
+  background-color: #f8f9fa; /* Light background color */
+  border: 1px solid #dee2e6; /* Border color */
+  border-radius: 5px;
+  overflow: hidden; /* Hide overflow content */
+}
+
+.aboutUsFeature::before {
+  content: ''; /* Create a pseudo-element */
+  position: absolute; /* Position it absolutely */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  opacity: 0; /* Initially invisible */
+  transition: opacity 0.3s; /* Transition effect for opacity */
+}
+
+.aboutUsFeature:hover::before {
+  opacity: 1; /* Make the pseudo-element visible on hover */
+}
+
+.aboutUsFeature h3,
+.aboutUsFeature p {
+  position: relative; /* Position the content relative to its container */
+  z-index: 1; /* Ensure content appears above the pseudo-element */
+}
+
+.aboutUsFeature h3 {
+  margin-top: 20px; /* Add some space between icon and title */
+}

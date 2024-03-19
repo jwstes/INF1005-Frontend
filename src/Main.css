@@ -1,0 +1,227 @@
+h1, h2, h3, h4, h5, h6{
+    font-family: "Quattrocento Sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    margin:0;
+}
+
+p{
+    margin:0;
+    font-family: "Quattrocento Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.btn-primary{
+    background-color: #80b500;
+    border: none;
+}
+.btn-primary:hover{
+    background-color: #5d8500;
+}
+.btn-primary:active{
+    background-color: #5d8500 !important;
+}
+
+.mr1{
+    margin-right: 1em;
+}
+
+.header{
+    box-shadow: 0px 3px 13px -8px rgba(0,0,0,0.75);
+}
+
+
+
+
+.promotionBanner{
+    padding: 5em 1em 5em 1em;
+    background-color: #f7f5eb;
+}
+
+.promotionBanner img{
+    width:350px;
+}
+
+.promotionBanner .row{
+    display: flex;
+    justify-content: center;
+}
+
+.promotionalItem{
+    max-width: 1000px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.promotionBanner .promotionalItem .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.promotionBanner .promotionalItem .col.alignCenter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.textCenter{
+    text-align: center;
+}
+.textCenter *{
+    padding:0;
+    margin:0;
+}
+
+
+
+.featuredProducts{
+    margin: 7em 0 7em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.featuredProducts .productsGrid{
+    margin-top: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 880px;
+}
+
+.featuredProducts .productsGrid .col{
+    display: flex;
+    justify-content: center;
+}
+
+.featuredProducts .productsGrid .card img{
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+
+
+.contactUsBanner{
+    background-color: #f7f5eb;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 7em;
+}
+
+.contactUsBanner .innerBody{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    max-width: 1000px;
+}
+
+.contactUsBanner .col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contactUsBanner .col img{
+    width: 350px;
+}
+
+.contactUsBanner .col.colMid{
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+.contactUsBanner .col img.elevateImg{
+    margin-top: -5em;
+}
+
+
+@media only screen and (max-width: 950px) {
+    .contactUsBanner{
+        background-color: #f7f5eb;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+
+    .contactUsBanner .col:nth-child(1){
+        display: none;
+    }
+    .contactUsBanner .col:nth-child(3){
+        display: none;
+    }
+}
+
+.pageHeading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7em;
+    margin-bottom: 7em;
+}
+
+.pageHeading *{
+    text-align: center;
+}
+
+.formArea{
+    margin: 0 0 7em 0;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f5eb;
+}
+
+.formArea form{
+    border-radius: 15px;
+    background-color: #ffffff;
+    padding: 1em;
+}
+
+.viewProductSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 7em 0 7em 0;
+}
+
+.viewProductSection .innerBody{
+    max-width: 1000px;
+    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.viewProductSection .innerBody .col:first-child{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.carousel-inner{
+    width: 350px !important;
+}
+.viewProductSection .innerBody .carouselImageItem{
+    width: 350px !important;
+    height: 350px !important;
+    background-position: center;
+    background-size: cover;
+}
+
+.viewProductSection .innerBody .productDetails{
+
+}
