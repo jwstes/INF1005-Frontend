@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import Header from './General/Header.jsx'
+import UserHeader from './General/UserHeader.jsx';
 import Footer from './General/Footer.jsx'
 
 import BannerSale from './Promotion/BannerSale.jsx';
@@ -15,68 +16,136 @@ import FeaturedProducts from './LandingPage/FeaturedProducts.jsx'
 import Feedback from './LandingPage/Feedback.jsx'
 import AboutUs from './LandingPage/AboutUs.jsx'
 
+import ProductGrid from './GridView/ProductGrid.jsx';
 
 import RegisterForm from './Authentication/RegisterForm.jsx';
 import LoginForm from './Authentication/LoginForm.jsx';
 
 import ViewProduct from './Product/ViewProduct.jsx';
 
+
+import GetFeaturedProducts from './APICalls/GetFeaturedProducts.jsx';
+
+
+import Cart from './CheckoutFlow/Cart.jsx'
+import Checkout from './CheckoutFlow/Checkout.jsx'
+import AddToCart from './PageSpecificFunctions/AddToCart.jsx';
+
+
+import { AuthProvider, useAuth } from './Context/AuthContext.jsx';
+
 import './Main.css'
 
-const HomePage = () => (
-  <>
-    <Header />
-    <Jumbotron />
-
-    <FeaturedProducts />
 
 
-    <Footer />
-  </>
-);
+const HomePage = () => {
+  const { isLoggedIn } = useAuth();
+  return (
+    <>
+      {isLoggedIn ? <UserHeader /> : <Header />}
+      <Jumbotron />
+      <FeaturedProducts />
+      <GetFeaturedProducts />
+      <Footer />
+    </>
+  );
+};
 
-const FeedbackPage = () => (
-  <>
-    <Header />
-    <Feedback />
+const FeedbackPage = () => {
+  const { isLoggedIn } = useAuth();
+  return (
+    <>
+      {isLoggedIn ? <UserHeader /> : <Header />}
+      <Feedback />
+  
+      <Footer />
+    </>
+  );
+};
 
-    <Footer />
-  </>
-);
+const AboutUsPage = () => {
+  const { isLoggedIn } = useAuth();
+  return (
+    <>
+      {isLoggedIn ? <UserHeader /> : <Header />}
+      <AboutUs/>
+  
+      <Footer />
+    </>
+  );
+};
 
-const AboutUsPage = () => (
-  <>
-    <Header />
-    <AboutUs/>
+const RegisterPage = () => {
+  const { isLoggedIn } = useAuth();
+  return (
+    <>
+      {isLoggedIn ? <UserHeader /> : <Header />}
+      <RegisterForm />
+      <Footer />
+    </>
+  );
+};
 
-    <Footer />
-  </>
-);
+const LoginPage = () => {
+  const { isLoggedIn } = useAuth();
+  return (
+    <>
+      {isLoggedIn ? <UserHeader /> : <Header />}
+      <LoginForm />
+      <Footer />
+    </>
+  );
+};
 
-const RegisterPage = () => (
-  <>
-    <Header />
-    <RegisterForm />
-    <Footer />
-  </>
-);
+const ViewProductPage = () => {
+  const { isLoggedIn } = useAuth();
+  return (
+    <>
+      {isLoggedIn ? <UserHeader /> : <Header />}
+      <BannerSale />
+      <ViewProduct />
+      <Footer />
+  
+      <AddToCart />
+    </>
+  );
+};
 
-const LoginPage = () => (
-  <>
-    <Header />
-    <LoginForm />
-    <Footer />
-  </>
-);
+const CategoryPage = () => {
+  const { isLoggedIn } = useAuth();
+  return (
+    <>
+      {isLoggedIn ? <UserHeader /> : <Header />}
+      <BannerSale />
+      <ProductGrid />
+      
+      <Footer />
+    </>
+  );
+};
 
-const ViewProductPage = () => (
-  <>
-    <Header />
-    <BannerSale />
-    <ViewProduct />
-    <Footer />
-  </>
-);
+
+const CartPage = () => {
+  const { isLoggedIn } = useAuth();
+  return (
+    <>
+      {isLoggedIn ? <UserHeader /> : <Header />}
+      <Cart />
+      <Footer />
+    </>
+  );
+}
+
+const CheckoutPage = () => {
+  const { isLoggedIn } = useAuth();
+  return (
+    <>
+      {isLoggedIn ? <UserHeader /> : <Header />}
+      <Checkout />
+      <Footer />
+    </>
+  );
+}
 
 
 const router = createBrowserRouter([
@@ -100,18 +169,30 @@ const router = createBrowserRouter([
     path : "/AboutUs",
     element: <AboutUsPage />,
   },
-
   {
     path : "/Feedback",
     element: <FeedbackPage />,
   },
+  {
+    path : "/category",
+    element: <CategoryPage />,
+  },
 
-
+  {
+    path : "/Cart",
+    element: <CartPage />,
+  },
+  {
+    path : "/Checkout",
+    element: <CheckoutPage />,
+  }
 ]);
 
 
 ReactDOM.createRoot(document.getElementById('renderBody')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )

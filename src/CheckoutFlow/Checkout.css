@@ -1,0 +1,131 @@
+.cartContainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.cartContainer h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.cartRow {
+  display: flex;
+  justify-content: center;
+}
+
+.cartProducts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.cartProduct {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.cartProduct:hover {
+  transform: translateY(-5px);
+}
+
+.cartProduct img {
+  width: 100px;
+  height: auto;
+  border-radius: 8px 0 0 8px;
+}
+
+.ProductDescription {
+  flex: 1;
+  padding: 20px;
+}
+
+.cartProductTitle {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.cartProductCategory,
+.cartProductPrice,
+.cartProductQuantity {
+  margin: 5px 0;
+  color: #666;
+}
+
+.shipping-information {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.shipping-information h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.shipping-details p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.cartInfo {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.checkoutCartTotal {
+  width: 100%;
+  padding: 9px;
+}
+
+.checkoutCartTotal > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 7px;
+}
+
+.checkoutCartTotal h2 {
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.checkoutCartTotal span {
+  font-size: 1.1rem;
+}
+
+.checkoutCartTotal--subtotal h2 {
+  font-weight: 500;
+}
+
+.cartTotal--total h2,
+.cartTotal--total span {
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  float: right;
+  margin-top: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}

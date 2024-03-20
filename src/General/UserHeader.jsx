@@ -1,6 +1,14 @@
 import { useState } from 'react'
+import { useAuth } from '../Context/AuthContext'
 
-function Header() {
+
+function UserHeader() {
+  const { userEmail, logout } = useAuth();
+
+
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <>
@@ -36,8 +44,16 @@ function Header() {
                           </li>
                       </ul>
                       <form className='d-flex'>
-                        <a href="/register" className='btn btn-primary mr1'>Register</a>
-                        <a href="/login" className='btn btn-primary'>Sign In</a>
+
+                        <div class="dropdown">
+                            <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Logged In As: {userEmail}
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" onClick={handleLogout}>Logout</a></li>
+                            </ul>
+                        </div>
+
                       </form>
                   </div>
               </div>
@@ -46,4 +62,4 @@ function Header() {
   )
 }
 
-export default Header
+export default UserHeader

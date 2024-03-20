@@ -1,33 +1,36 @@
 import { useState } from 'react'
 
+import { useAuth } from '../Context/AuthContext';
+
 function LoginForm() {
+    const { login } = useAuth();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [validationMessage, setValidationMessage] = useState('');
 
     const handleChange = (e) => {
-        const { name, value, checked } = e.target;
-        switch (name) {
-        case 'email':
-            setEmail(value);
-            break;
-        case 'password':
-            setPassword(value);
-            break;
-        default:
-            break;
-        }
+        const { name, value } = e.target;
+        if (name === 'email') setEmail(value);
+        if (name === 'password') setPassword(value);
     };
 
     const processLogin = () => {
         if (!email || !password) {
             setValidationMessage('Please fill out all fields.');
             return;
+        }else{
+            if(email == 'a' && password == 'a'){
+                setValidationMessage('Login successful!');
+                setEmail('');
+                setPassword('');
+                login(email);
+            }
+            else{
+                setValidationMessage('Wrong Credentials!');
+            }
         }
-        setValidationMessage('Login successful!');
-        setEmail('');
-        setPassword('');
+        
     };
 
 

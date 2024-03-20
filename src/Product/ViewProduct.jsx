@@ -6,28 +6,41 @@ function ViewProduct() {
     let [searchParams] = useSearchParams();
     const productId = searchParams.get('id');
 
-    React.useEffect(() => {
-        console.log(productId);
-    }, [productId]);
-
-
-    const [carouselItems, setCarouselItems] = useState([]);
+    const [
+        carouselItems,
+        setCarouselItems
+    ] = useState([]);
 
     useEffect(() => {
-        const imageUrls = [
-            "https://staticg.sportskeeda.com/editor/2022/06/f53e6-16560608039433-1920.jpg?w=840",
-            "https://wegotthiscovered.com/wp-content/uploads/2023/11/711751b.jpg",
-            "https://akcdn.detik.net.id/visual/2022/06/30/anime-spy-x-family-anya-forger_169.jpeg?w=400&q=90"
-        ];
-
-        const items = imageUrls.map((url, index) => (
-            <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
-                <div style={{backgroundImage: `url(${url})`}} className="d-block w-100 carouselImageItem" alt={`Slide ${index}`} />
-            </div>
-        ));
-
-        setCarouselItems(items);
-    }, []);
+        fetch(`http://35.212.170.89:5000/api/product/read_single.php?id=${productId}`)
+        .then(response => response.json())
+        .then(data => {
+            const price = data['price'];
+            const name = data['name'];
+            const imagesObj = data['images']; // {img1: url, img2: url, ...}
+            const description = data['description'];
+            const category = data['category_name'];
+    
+            const imageUrls = Object.values(imagesObj);
+    
+            const items = imageUrls.map((url, index) => (
+                <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
+                    <img src={url} className="d-block w-100 carouselImageItem" alt={`Slide ${index}`} />
+                </div>
+            ));
+    
+            document.getElementById('productName').innerText = name;
+            document.getElementById('productID').innerText = `SKU-${productId}`;
+            document.getElementById('productDescription').innerText = description;
+            document.getElementById('productPrice').innerText = `USD $${price}`;
+            document.getElementById('productCategory').innerText = category;
+            sessionStorage.setItem('currentViewItem', JSON.stringify(data));
+            
+            setCarouselItems(items);
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    }, [productId]);
+    
 
   return (
     <>
@@ -51,15 +64,16 @@ function ViewProduct() {
                 <div className='col-md-6'>
                     <div className='productDetails'>
                         <div>
-                            <h3>Rolex 1</h3>
-                            <p>SKU: 1011-3069</p>
+                            <h3 id="productName">Rolex 1</h3>
+                            <p id="productID">SKU: 1011-3069</p>
+                            <p>Category: <span class="badge text-bg-secondary" id="productCategory">New</span></p>
                             <hr></hr>
-                            <p>this for me is the rolex watch and so i have fuck youir mother this for me is the rolex watch and so i have fuck youir mother this for me is the rolex watch and so i have fuck youir mother </p>
+                            <p id="productDescription">this for me is the rolex watch and so i have fuck youir mother this for me is the rolex watch and so i have fuck youir mother this for me is the rolex watch and so i have fuck youir mother </p>
                         </div>
                         <hr></hr>
                         <div>
-                            <h3>JPY 300,000</h3>
-                            <button className='btn btn-primary'>Add To Cart</button>
+                            <h3 id="productPrice">300,000</h3>
+                            <button className='btn btn-primary' id="addToCartBtn">Add To Cart</button>
                         </div>
                     </div>
                 </div>

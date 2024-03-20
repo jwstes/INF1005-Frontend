@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { hashPassword } from './HashPassword';
 
 function RegisterForm() {
 
@@ -28,7 +29,7 @@ function RegisterForm() {
         }
     };
 
-    const processRegister = () => {
+    const processRegister = async () => {
         if (!email || !password || !confirmPassword) {
             setValidationMessage('Please fill out all fields.');
             return;
@@ -41,11 +42,48 @@ function RegisterForm() {
             setValidationMessage('You must accept the Terms & Conditions.');
             return;
         }
-        setValidationMessage('Registration successful!');
-        setEmail('');
-        setPassword('');
-        setConfirmPassword('');
-        setTosAccepted(false);
+        
+
+        try {
+            const response = await fetch('http://35.212.170.89:5000/api/salt/generate.php');
+            if (!response.ok) {
+                throw new Error('Failed to fetch the salt');
+            }
+            const { data } = await response.json();
+            const salt = data[0].salt;
+            
+
+            const hashedPassword = await hashPassword(password, salt);
+            
+            // console.log(email);
+            // console.log(hashedPassword);
+            // console.log(salt);
+
+            const createUserResponse = await fetch('http://35.212.170.89:5000/api/user/create.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    hashed_password: hashedPassword,
+                    salt: salt,
+                }),
+            });
+            console.log(createUserResponse.status);
+    
+            setEmail('');
+            setPassword('');
+            setConfirmPassword('');
+            setTosAccepted(false);
+    
+            setValidationMessage('Registration successful!');
+        } catch (error) {
+            console.error('Error during registration process:', error);
+            setValidationMessage('An error occurred during registration.');
+        }
+
+
     };
 
 

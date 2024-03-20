@@ -1,14 +1,64 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-function Header() {
+function ProductGrid() {
+    let [searchParams] = useSearchParams();
+    const categoryNM = searchParams.get('nm');
+    
+    const [
+        categoryName,
+        setCategoryName
+    ] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://35.212.170.89:5000/api/product/read.php`)
+        .then(response => response.json())
+        .then(data => {
+            var displayCategoryName = "";
+            if(categoryNM == 'retail'){
+                displayCategoryName = "Retail";
+                setCategoryName(displayCategoryName);
+            }
+            else if(categoryNM == 'ltd'){
+                displayCategoryName = "Limited";
+                setCategoryName(displayCategoryName);
+            }
+
+
+            var productsGrid = document.getElementById('productsGrid');
+            var productsGridHTML = ``;
+
+            var watches = data['data'];
+            for (let j = 0; j < watches.length; j++) {
+                if(watches[j]['category_name'] == displayCategoryName){
+                    productsGridHTML += `<div class="col">`;
+                    productsGridHTML += `<div class="card" style="width: 18rem">`;
+                    productsGridHTML += `<img src="${watches[j]['images']['img1']}" class="card-img-top"></img>`;
+                    productsGridHTML += `<div class="card-body">`;
+                    productsGridHTML += `<h5 class="card-title">${watches[j]['name']}</h5>`;
+                    productsGridHTML += `<p class="card-text">${watches[j]['description']}</p>`;
+                    productsGridHTML += `<p class="card-text">$${watches[j]['price']}</p>`;
+                    productsGridHTML += `<a href="/viewProduct?id=${watches[j]['id']}" class="btn btn-primary">View Product</a>`;
+                    productsGridHTML += `</div>`;
+                    productsGridHTML += `</div>`;
+                    productsGridHTML += `</div>`;
+                }
+            }
+            productsGrid.innerHTML = productsGridHTML;
+
+            
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    }, [categoryNM]);
 
   return (
     <>
         <div className="container-fluid featuredProducts">
             <div className="textCenter">
-                <h2>Featured Products</h2>
+                <h2>Displaying Products for {categoryName}</h2>
             </div>
-            <div className="productsGrid" id="featuredProductsGrid">
+            <div className="productsGrid" id="productsGrid">
                 <div className="col">
                     <div className="card" style={{width: '18rem'}}>
                         <img src="https://watch.chowtaifook.com/images/rolex/2023sep/watches/front_facing/m126234-0057_modelpage_front_facing_landscape.png" className="card-img-top">
@@ -81,4 +131,4 @@ function Header() {
   )
 }
 
-export default Header
+export default ProductGrid
