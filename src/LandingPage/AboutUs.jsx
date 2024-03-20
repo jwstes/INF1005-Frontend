@@ -105,10 +105,13 @@ document.addEventListener('DOMContentLoaded', function() {
     </Row>
   );
 
-  // Function to scroll to top when clicked
-  const scrollToTop = () => {
-    scroll.scrollToTop();
-  };
+ // Function to scroll to top when clicked
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Add smooth behavior for a more pleasant scroll animation
+  });
+};
 
   // Array of carousel items
   const carouselItems = [
