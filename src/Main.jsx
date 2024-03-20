@@ -12,7 +12,9 @@ import BannerSale from './Promotion/BannerSale.jsx';
 
 import Jumbotron from './LandingPage/Jumbotron.jsx'
 import FeaturedProducts from './LandingPage/FeaturedProducts.jsx'
-import ContactUsSection from './LandingPage/ContactUsSection.jsx'
+import Feedback from './LandingPage/Feedback.jsx'
+import AboutUs from './LandingPage/AboutUs.jsx'
+
 
 import RegisterForm from './Authentication/RegisterForm.jsx';
 import LoginForm from './Authentication/LoginForm.jsx';
@@ -25,8 +27,28 @@ const HomePage = () => (
   <>
     <Header />
     <Jumbotron />
+
     <FeaturedProducts />
-    <ContactUsSection />
+
+
+    <Footer />
+  </>
+);
+
+const FeedbackPage = () => (
+  <>
+    <Header />
+    <Feedback />
+
+    <Footer />
+  </>
+);
+
+const AboutUsPage = () => (
+  <>
+    <Header />
+    <AboutUs/>
+
     <Footer />
   </>
 );
@@ -73,7 +95,18 @@ const router = createBrowserRouter([
   {
     path : "/viewProduct",
     element: <ViewProductPage />,
-  }
+  },
+  {
+    path : "/AboutUs",
+    element: <AboutUsPage />,
+  },
+
+  {
+    path : "/Feedback",
+    element: <FeedbackPage />,
+  },
+
+
 ]);
 
 

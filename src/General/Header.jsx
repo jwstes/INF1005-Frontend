@@ -16,7 +16,7 @@ function Header() {
                               <a className="nav-link active" aria-current="page" href="/">Home</a>
                           </li>
                           <li className="nav-item">
-                              <a className="nav-link" href="#">About Us</a>
+                              <a className="nav-link" href="/AboutUs">About Us</a>
                           </li>
                           <li className="nav-item dropdown">
                               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,7 +32,7 @@ function Header() {
                               <a className="nav-link" href="#">Custom Orders</a>
                           </li>
                           <li className="nav-item">
-                              <a className="nav-link" href="#">Contact Us</a>
+                              <a className="nav-link" href="/Feedback">Feedback</a>
                           </li>
                       </ul>
                       <form className='d-flex'>
