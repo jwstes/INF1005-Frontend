@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { animateScroll as scroll } from 'react-scroll';
+// import { animateScroll as scroll } from 'react-scroll';
 import { Badge, Carousel, Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faGem, faCertificate, faUsers, faGlobe, faArrowUp } from '@fortawesome/free-solid-svg-icons';
