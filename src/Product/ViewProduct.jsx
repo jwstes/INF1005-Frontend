@@ -17,7 +17,7 @@ function ViewProduct() {
         .then(data => {
             const price = data['price'];
             const name = data['name'];
-            const imagesObj = data['images']; // {img1: url, img2: url, ...}
+            const imagesObj = data['images'];
             const description = data['description'];
             const category = data['category_name'];
     
@@ -42,23 +42,38 @@ function ViewProduct() {
         .catch(error => console.error('Error fetching data:', error));
     }, [productId]);
     
-
+    const redirectToProductPage = () => {
+        window.location.href = '/';
+    };
   return (
     <>
+          <div className="modal fade" id="addedToCartModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div className="modal-dialog">
+                  <div className="modal-content">
+                      <div className="modal-header">
+                          <h1 className="modal-title fs-5" id="staticBackdropLabel">Added To Cart!</h1>
+                          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div className="modal-footer">
+                          <button type="button" className="btn btn-primary" onClick={redirectToProductPage}>Continue Shopping</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
         <div className='viewProductSection'>
             <div className='innerBody'>
                 <div className='col'>
-                      <div id="carouselExample" class="carousel slide" style={{width: '350px'}}>
-                          <div class="carousel-inner" id='carouselImages'>
+                      <div id="carouselExample" className="carousel slide" style={{width: '350px'}}>
+                          <div className="carousel-inner" id='carouselImages'>
                             {carouselItems}
                           </div>
-                          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
+                          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span className="visually-hidden">Previous</span>
                           </button>
-                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
+                          <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span className="visually-hidden">Next</span>
                           </button>
                       </div>
                 </div>
@@ -67,7 +82,7 @@ function ViewProduct() {
                         <div>
                             <h3 id="productName">Rolex 1</h3>
                             <p id="productID">SKU: 1011-3069</p>
-                            <p>Category: <span class="badge text-bg-secondary" id="productCategory">New</span></p>
+                            <p>Category: <span className="badge text-bg-secondary" id="productCategory">New</span></p>
                             <hr></hr>
                             <p id="productDescription">this for me is the rolex watch and so i have fuck youir mother this for me is the rolex watch and so i have fuck youir mother this for me is the rolex watch and so i have fuck youir mother </p>
                         </div>

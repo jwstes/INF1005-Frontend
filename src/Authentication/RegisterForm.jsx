@@ -70,14 +70,18 @@ function RegisterForm() {
                     salt: salt,
                 }),
             });
-            console.log(createUserResponse.status);
-    
-            setEmail('');
-            setPassword('');
-            setConfirmPassword('');
-            setTosAccepted(false);
-    
-            setValidationMessage('Registration successful!');
+            var resp = await createUserResponse.text();
+            if(createUserResponse.status == 201){
+                setEmail('');
+                setPassword('');
+                setConfirmPassword('');
+                setTosAccepted(false);
+                setValidationMessage('Registration successful!');
+                window.location.href = '/login'
+            }
+            else{
+                setValidationMessage('An error occurred during registration.');
+            }
         } catch (error) {
             console.error('Error during registration process:', error);
             setValidationMessage('An error occurred during registration.');

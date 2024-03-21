@@ -1,27 +1,39 @@
 import React, { useEffect } from 'react';
+import { useAuth } from '../Context/AuthContext';
 
 const AddToCart = () => {
+  const { isLoggedIn } = useAuth();
+
   useEffect(() => {
+    const addToCart = () => {
+      
+      if(isLoggedIn != true){
+        window.location.href = '/register';
+        return;
+      }
 
-    document.getElementById('addToCartBtn').addEventListener('click', function(){
-
-        var productID = JSON.parse(sessionStorage.getItem('currentViewItem'))['id'];
-        fetch(`http://35.212.170.89:5000/api/product/read_single.php?id=${productID}`)
+      var productID = JSON.parse(sessionStorage.getItem('currentViewItem'))['id'];
+      fetch(`http://35.212.170.89:5000/api/product/read_single.php?id=${productID}`)
         .then(response => response.json())
-        .then(
-            data => {
-                console.log(data);
-            }
-        )
+        .then(data => {
+          let cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || [];
+          if (!cartItems.some(item => item.id === data.id)) {
+            cartItems.push(data);
+            sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+            const addedToCartModal = new bootstrap.Modal('#addedToCartModal',{});
+            addedToCartModal.toggle();
+          }
+        })
         .catch(error => console.error('Error fetching data:', error));
-    });
+    };
 
-    
-        
+    const button = document.getElementById('addToCartBtn');
+    if(button) button.addEventListener('click', addToCart);
 
-
-
-  }, []);
+    return () => {
+      if(button) button.removeEventListener('click', addToCart);
+    };
+  }, [isLoggedIn]);
 
   return null;
 };

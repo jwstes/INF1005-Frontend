@@ -50,6 +50,7 @@ function UserHeader() {
                             Logged In As: {userEmail}
                             </button>
                             <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/cart">My Cart</a></li>
                                 <li><a class="dropdown-item" href="#" onClick={handleLogout}>Logout</a></li>
                             </ul>
                         </div>

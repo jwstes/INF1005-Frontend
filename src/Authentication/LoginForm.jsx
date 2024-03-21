@@ -2,6 +2,8 @@ import { useState } from 'react'
 
 import { useAuth } from '../Context/AuthContext';
 
+import { hashPassword } from './HashPassword';
+
 function LoginForm() {
     const { login } = useAuth();
 
@@ -15,19 +17,45 @@ function LoginForm() {
         if (name === 'password') setPassword(value);
     };
 
-    const processLogin = () => {
+    const processLogin = async () => {
         if (!email || !password) {
             setValidationMessage('Please fill out all fields.');
             return;
         }else{
-            if(email == 'a' && password == 'a'){
+            const resp = await fetch('http://35.212.170.89:5000/api/salt/retrieve.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email
+                }),
+            });
+            const data = await resp.json();
+            const salt = data['salt'];
+            const hashedPassword = await hashPassword(password, salt);
+            
+            const loginResp = await fetch('http://35.212.170.89:5000/api/user/authenticate.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    hashed_password : hashedPassword
+                }),
+            });
+
+            if(loginResp.status == 401){
+                setValidationMessage('Wrong Credentials!');
+            }
+            else{
+                const respData = await loginResp.json();
+                localStorage.setItem('bt', respData['token']);
                 setValidationMessage('Login successful!');
                 setEmail('');
                 setPassword('');
                 login(email);
-            }
-            else{
-                setValidationMessage('Wrong Credentials!');
             }
         }
         

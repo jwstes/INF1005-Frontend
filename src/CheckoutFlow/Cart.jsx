@@ -3,10 +3,7 @@ import './Cart.css';
 
 function Cart() {
     const maxQuantity = 10;
-    const initialProducts = [
-      { id: 1, title: 'Product Title 1', category: 'Limited', price: '$9.99' },
-      { id: 2, title: 'Product Title 2', category: 'Limited', price: '$19.99' },
-    ];
+    const initialProducts = JSON.parse(sessionStorage.getItem('cartItems'));
   
     const [products, setProducts] = useState(initialProducts); 
   
@@ -17,6 +14,15 @@ function Cart() {
     };
   
     const handleDelete = (productId) => {
+      var cartItems = JSON.parse(sessionStorage.getItem('cartItems'));
+      var nCartItems = [];
+      for (let i = 0; i < cartItems.length; i++) {
+        if(cartItems[i]['id'] != productId){
+            nCartItems.push(cartItems[i]);
+        }
+      }
+      sessionStorage.setItem('cartItems', JSON.stringify(nCartItems));
+
       setProducts(products.filter((product) => product.id !== productId));
       setQuantities((prevQuantities) => {
         const updatedQuantities = { ...prevQuantities };
@@ -31,52 +37,70 @@ function Cart() {
       const total = subtotal; 
 
     const handleCheckout = () => {
-        history.push('/checkout');
+        var allPQ = document.querySelectorAll('.productQuantity');
+        var cartQty = [];
+        for (let i = 0; i < allPQ.length; i++) {
+            var pq = allPQ[i];
+            var qty = pq.value;
+            var productID = pq.getAttribute('productID');
+            cartQty.push([productID, qty]);
+        }
+        sessionStorage.setItem('cartQty', JSON.stringify(cartQty));
+        window.location.href = '/checkout';
     };
 
-    return (
-        <div className="cartContainer">
-            <h1>Cart</h1>
-            <div className='cartRow'>
-                <div className="Products">
-                    {products.map((product) => (
-                        <div className="Product" key={product.id}>
-                            <img src='https://watch.chowtaifook.com/images/rolex/2023sep/watches/front_facing/m126234-0057_modelpage_front_facing_landscape.png' alt="Product" />
-                            <div className="ProductDescription">
-                                <h3 className="productTitle">{product.title}</h3>
-                                <p className="productCategory">{product.category}</p>
-                                <p className="productPrice">{product.price}</p>
-                                <select
-                                    value={quantities[product.id] || 1}
-                                    onChange={(e) => handleQuantityChange(product.id, parseInt(e.target.value))}
-                                    className="productQuantity"
-                                >
-                                    {[...Array(maxQuantity).keys()].map((num) => (
-                                        <option key={num + 1} value={num + 1}>{num + 1}</option>
-                                    ))}
-                                </select>
+    if(initialProducts.length != 0){
+        return (
+            <div className="cartContainer">
+                <h1>Cart</h1>
+                <div className='cartRow'>
+                    <div className="Products">
+                        {products.map((product) => (
+                            <div className="Product" key={product.id}>
+                                <img src={`http://35.212.170.89/images/${product.images.img1}`} alt="Product" />
+                                <div className="ProductDescription">
+                                    <h3 className="productTitle">{product.name}</h3>
+                                    <p className="productCategory">{product.category_name}</p>
+                                    <p className="productPrice">{product.price}</p>
+                                    <select
+                                        productID={product.id}
+                                        value={quantities[product.id] || 1}
+                                        onChange={(e) => handleQuantityChange(product.id, parseInt(e.target.value))}
+                                        className="productQuantity"
+                                    >
+                                        {[...Array(maxQuantity).keys()].map((num) => (
+                                            <option key={num + 1} value={num + 1}>{num + 1}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <button className="DeleteButton" onClick={() => handleDelete(product.id)}>Delete</button>
                             </div>
-                            <button className="DeleteButton" onClick={() => handleDelete(product.id)}>Delete</button>
+                        ))}
+                    </div>
+                </div>
+                <div className="cartInfo">
+                    <div className="cartTotal">
+                        <div className="cartSubTotal">
+                            <h2>Subtotal</h2>
+                            <span>${subtotal.toFixed(2)}</span>
                         </div>
-                    ))}
-                </div>
-            </div>
-            <div className="cartInfo">
-                <div className="cartTotal">
-                    <div className="cartSubTotal">
-                        <h2>Subtotal</h2>
-                        <span>${subtotal.toFixed(2)}</span>
-                    </div>
-                    <div className="cartFinalAmount">
-                        <h2>Total</h2>
-                        <span>${total.toFixed(2)}</span>
+                        <div className="cartFinalAmount">
+                            <h2>Total</h2>
+                            <span>${total.toFixed(2)}</span>
+                        </div>
                     </div>
                 </div>
+                <button class="btn btn-primary" style={{ float: 'right' }} onClick={handleCheckout}> Checkout </button>
             </div>
-            <button class="btn btn-primary" style={{ float: 'right' }} onClick={handleCheckout}> Checkout </button>
-            <span className="cartEmptyMessage" hidden="true">The cart is empty</span>  {/* Change the hidden to false when cart is empty */}
-        </div>
-    );
+        );
+    }
+    else{
+        return (
+            <div className="cartContainer">
+                <h1>Cart Is Empty</h1>
+            </div>
+        );
+    }
 }
 
 export default Cart;
