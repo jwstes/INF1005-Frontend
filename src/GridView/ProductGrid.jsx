@@ -34,7 +34,7 @@ function ProductGrid() {
                 if(watches[j]['category_name'] == displayCategoryName){
                     productsGridHTML += `<div class="col">`;
                     productsGridHTML += `<div class="card" style="width: 18rem">`;
-                    productsGridHTML += `<img src="${watches[j]['images']['img1']}" class="card-img-top"></img>`;
+                    productsGridHTML += `<img src="http://35.212.170.89/images/${watches[j]['images']['img1']}" class="card-img-top"></img>`;
                     productsGridHTML += `<div class="card-body">`;
                     productsGridHTML += `<h5 class="card-title">${watches[j]['name']}</h5>`;
                     productsGridHTML += `<p class="card-text">${watches[j]['description']}</p>`;

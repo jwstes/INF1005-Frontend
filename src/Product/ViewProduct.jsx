@@ -24,8 +24,9 @@ function ViewProduct() {
             const imageUrls = Object.values(imagesObj);
     
             const items = imageUrls.map((url, index) => (
+                
                 <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
-                    <img src={url} className="d-block w-100 carouselImageItem" alt={`Slide ${index}`} />
+                    <img src={`http://35.212.170.89/images/${url}`} className="d-block w-100 carouselImageItem" alt={`Slide ${index}`} />
                 </div>
             ));
     
