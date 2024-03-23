@@ -32,6 +32,8 @@ import Checkout from './CheckoutFlow/Checkout.jsx'
 import AddToCart from './PageSpecificFunctions/AddToCart.jsx';
 
 import Payment from './Payment/Payment.jsx';
+import PaymentSuccess from './Payment/PaymentSuccess.jsx';
+import PaymentError from './Payment/PaymentError.jsx';
 
 
 import { AuthProvider, useAuth } from './Context/AuthContext.jsx';
@@ -159,6 +161,28 @@ const PaymentPage = () => {
   );
 }
 
+const PaymentSuccessPage = () => {
+  const { isLoggedIn } = useAuth();
+  return (
+    <>
+      {isLoggedIn ? <UserHeader /> : <Header />}
+      <PaymentSuccess />
+      <Footer />
+    </>
+  );
+}
+
+const PaymentErrorPage = () => {
+  const { isLoggedIn } = useAuth();
+  return (
+    <>
+      {isLoggedIn ? <UserHeader /> : <Header />}
+      <PaymentError />
+      <Footer />
+    </>
+  );
+}
+
 
 const router = createBrowserRouter([
   {
@@ -201,6 +225,14 @@ const router = createBrowserRouter([
   {
     path : "/Payment",
     element: <PaymentPage />,
+  },
+  {
+    path : "/PaymentSuccess",
+    element: <PaymentSuccessPage />,
+  },
+  {
+    path : "/PaymentError",
+    element: <PaymentErrorPage />,
   }
 ]);
 

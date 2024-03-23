@@ -23,6 +23,11 @@ function Checkout() {
 
     const total = subtotal;
 
+
+    const toPayment = () => {
+        window.location.href = '/payment';
+    };
+
     return (
         <div className="cartContainer">
             <h1>Checkout</h1>
@@ -55,7 +60,7 @@ function Checkout() {
                     </div>
                 </div>
             </div>
-            <button className="btn btn-primary" style={{ float: 'right' }}> Continue to Payment </button>
+            <button className="btn btn-primary" onClick={toPayment} style={{ float: 'right' }}> Continue to Payment </button>
         </div>
     );
 }

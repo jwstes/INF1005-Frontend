@@ -225,3 +225,35 @@ p{
 .viewProductSection .innerBody .productDetails{
 
 }
+
+.paymentContainer{
+    margin-top: 7em;
+    margin-bottom: 7em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+}
+.paymentForm .formGroup{
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 0.5em;
+}
+
+.paymentForm{
+    width: 100%;
+    max-width: 750px;
+}
+
+.paymentInfoPage{
+    margin-top: 7em;
+    margin-bottom: 7em;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.paymentInfoPage p{
+    text-align: center;
+}
