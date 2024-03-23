@@ -53,6 +53,7 @@ function LoginForm() {
                 const respData = await loginResp.json();
                 localStorage.setItem('bt', respData['token']);
                 localStorage.setItem('userID', respData['user_id']);
+                localStorage.setItem('userEmail', email);
                 setValidationMessage('Login successful!');
                 setEmail('');
                 setPassword('');

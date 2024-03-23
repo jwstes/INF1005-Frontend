@@ -6,7 +6,8 @@ function Orders() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch('http://35.212.170.89:5000/api/order/read.php?user=testboi@gmail.com');
+        const userEmail = localStorage.getItem('userEmail');
+        const response = await fetch('http://35.212.170.89:5000/api/order/read.php?user='+userEmail);
         const data = await response.json();
         setOrders(data.data);
       } catch (error) {
