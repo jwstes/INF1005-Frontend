@@ -51,6 +51,7 @@ function UserHeader() {
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/cart">My Cart</a></li>
+                                <li><a class="dropdown-item" href="/myOrders">My Orders</a></li>
                                 <li><a class="dropdown-item" href="#" onClick={handleLogout}>Logout</a></li>
                             </ul>
                         </div>

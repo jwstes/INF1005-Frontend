@@ -3,7 +3,7 @@ import './Cart.css';
 
 function Cart() {
     const maxQuantity = 10;
-    const initialProducts = JSON.parse(sessionStorage.getItem('cartItems'));
+    const initialProducts = JSON.parse(sessionStorage.getItem('cartItems')) || [];
   
     const [products, setProducts] = useState(initialProducts); 
   
