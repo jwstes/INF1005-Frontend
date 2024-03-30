@@ -37,6 +37,7 @@ import PaymentError from './Payment/PaymentError.jsx';
 
 import Orders from './Orders/Orders.jsx';
 
+import ManagementPage from './Management/Admin.jsx';
 
 import { AuthProvider, useAuth } from './Context/AuthContext.jsx';
 
@@ -163,6 +164,7 @@ const PaymentPage = () => {
   );
 }
 
+
 const PaymentSuccessPage = () => {
   const { isLoggedIn } = useAuth();
   return (
@@ -193,6 +195,18 @@ const OrdersPage = () => {
       <Orders />
       <Footer />
     </>
+  );
+}
+
+const ManagementComponent = () => {
+  const { isLoggedIn } = useAuth();
+  return (
+    <>
+    {isLoggedIn ? <UserHeader /> : <Header />}
+    <ManagementPage/>
+
+    <Footer />
+  </>
   );
 }
 
@@ -247,10 +261,17 @@ const router = createBrowserRouter([
     path : "/PaymentError",
     element: <PaymentErrorPage />,
   },
+
   {
     path : "/MyOrders",
     element: <OrdersPage />,
-  }
+  },
+
+  {
+    path: "/Management",
+    element: <ManagementComponent/>,
+  },
+  
 ]);
 
 
