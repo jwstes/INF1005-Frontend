@@ -24,7 +24,6 @@ const ProductList = () => {
 const productListItems = [];
   return (
     <div>
-      <h2>Product List</h2>
       <ul>
         {productListItems}
       </ul>

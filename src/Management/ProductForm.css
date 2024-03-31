@@ -1,0 +1,30 @@
+/* ProductForm.css */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.error{
+    color: red;
+}
+  
+.form-control {
+    width: 25%;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+  
+.btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #4caf50; 
+    color: #fff;
+    cursor: pointer;
+  }
+  
+.btn:hover {
+    background-color: #388e3c; 
+  }
+  
