@@ -257,3 +257,9 @@ p{
 .paymentInfoPage p{
     text-align: center;
 }
+
+.footerSection{
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start !important;
+}
