@@ -1,18 +1,20 @@
 /* AdminPage.css */
 .admin-container {
   display: flex;
-  justify-content: space-between; 
 }
 
 .product-list,
-.product-form {
+.forms-container {
   width: 45%; 
 }
 
 .product-list {
-  margin-right: 20px;
+  margin-right: 10%; /* Adjusted for spacing */
 }
 
-.product-form {
-  margin-left: 20px; 
+.forms-container {
+  display: flex;
+  flex-direction: column;
 }
+
+/* You can remove .product-form margin if it's no longer needed */

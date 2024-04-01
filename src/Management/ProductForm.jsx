@@ -3,6 +3,9 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import './ProductForm.css';
 import DOMPurify from 'dompurify';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faDollarSign, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 const ProductForm = () => {
   // Define the validation schema using Yup
@@ -14,15 +17,12 @@ const ProductForm = () => {
       .typeError('Please enter a valid price')
       .required('Please enter a price for your new product')
       .positive('Price must be positive'),
-    description: Yup.string().required('Please enter a product description'),
+    // description: Yup.string().required('Please enter a product description'),
     stock: Yup.number()
       .required('Please enter product stock')
       .positive('Stock must be positive')
       .integer('Stock must be an integer'),
     image1: Yup.string().required('Please provide the first image path'),
-    image2: Yup.string().required('Please provide the second image path'),
-    image3: Yup.string().required('Please provide the third image path'),
-    image4: Yup.string().required('Please provide the fourth image path'),
     category_id: Yup.number()
       .required('Please select a category ID')
       .positive('Category ID must be positive')
@@ -57,6 +57,8 @@ const ProductForm = () => {
       category_id: DOMPurify.sanitize(values.category_id),
     };
 
+
+
     // Log the values to the console before the network request
     console.log('Sanitized values being sent to the server:', sanitizedValues);
 
@@ -69,7 +71,7 @@ const ProductForm = () => {
       body: JSON.stringify(sanitizedValues),
     };
 
-    // Use fetch to send the post request
+      // Use fetch to send the post request
     fetch('http://35.212.170.89:5000/api/product/create.php', fetchOptions)
       .then(response => {
         if (!response.ok) {
@@ -95,7 +97,7 @@ const ProductForm = () => {
   };
 
   return (
-    <div>
+    <div className="product-form-container">
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -103,14 +105,21 @@ const ProductForm = () => {
       >
         {({ isSubmitting }) => (
           <Form>
-            <label htmlFor="name">Name:</label>
-            <Field type="text" name="name" className="form-control" />
-            <ErrorMessage name="name" component="div" className="error" />
+            <div className="form-group">
+              <label htmlFor="name">
+                <FontAwesomeIcon icon={faUser} /> Name:
+              </label>
+              <Field type="text" name="name" className="form-control" />
+              <ErrorMessage name="name" component="div" className="error" />
+            </div>
 
-            <label htmlFor="price">Price:</label>
-            <Field type="number" name="price" className="form-control" />
-            <ErrorMessage name="price" component="div" className="error" />
-
+            <div className="form-group">
+              <label htmlFor="price">
+                <FontAwesomeIcon icon={faDollarSign} /> Price:
+              </label>
+              <Field type="number" name="price" className="form-control" />
+              <ErrorMessage name="price" component="div" className="error" />
+            </div>
             <label htmlFor="stock">Stock:</label>
 
             <Field type="number" name="stock" className="form-control" />
@@ -134,13 +143,15 @@ const ProductForm = () => {
 
             <label htmlFor="category_id">Category ID:</label>
             <Field type="number" name="category_id" className="form-control" />
-            <ErrorMessage name="category_id" component="div" className="error" />
+            <ErrorMessage name="category_id" component="div"   className="error" />
 
-          
-            <label htmlFor="description">Description:</label>
-            <Field type="text" name="description" className="form-control" />
-            <ErrorMessage name="description" component="div" className="error" />
-
+            <div className="form-group">
+              <label htmlFor="description">
+                <FontAwesomeIcon icon={faInfoCircle} /> Description:
+              </label>
+              <Field type="text" name="description" className="form-control" />
+              <ErrorMessage name="description" component="div" className="error" />
+            </div>
 
             <button type="submit" className="btn" disabled={isSubmitting}>
               {isSubmitting ? 'Adding...' : 'Add Product'}

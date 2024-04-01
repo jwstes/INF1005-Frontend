@@ -2,6 +2,8 @@
 import React from 'react';
 import ProductList from './ProductList';
 import ProductForm from './ProductForm';
+import UpdateProductForm from './UpdateProductForm';
+
 import './AdminPage.css'; 
 
 const AdminPage = () => {
@@ -11,9 +13,15 @@ const AdminPage = () => {
         <h1>Product List</h1>
         <ProductList />
       </div>
-      <div className="product-form">
-        <h1>Add a New Product</h1>
-        <ProductForm />
+      <div className="forms-container">
+        <div className="product-form">
+          <h1>Create Product</h1>
+          <ProductForm />
+        </div>
+        <div className="update-product-form">
+          <h1>Update Product</h1>
+          <UpdateProductForm />
+        </div>
       </div>
     </div>
   );
