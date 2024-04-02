@@ -27,3 +27,21 @@
 .product-details p {
   margin: 5px 0;
 }
+
+/* ProductList.css */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensures flex container takes full height */
+}
+
+.card-img-top {
+  height: 200px; /* Adjust based on your preference */
+  object-fit: cover; /* Ensures images cover the area nicely */
+}
+
+.card-body {
+  flex: 1; /* Allows card body to expand and push the footer down */
+  padding: 15px; /* Ensures consistent padding */
+}
