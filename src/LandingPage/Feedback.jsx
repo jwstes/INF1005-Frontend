@@ -34,7 +34,7 @@ function Feedback() {
             onChange={(e) => setFirstName(e.target.value)}
             placeholder="First Name"
           />
-          <label htmlFor="lastName">Last Name (Mandatory)</label>
+          <label htmlFor="lastName">Last Name (Required)</label>
           <input
             type="text"
             id="lastName"
@@ -43,7 +43,7 @@ function Feedback() {
             placeholder="Last Name"
             required
           />
-          <label htmlFor="email">Email (Mandatory)</label>
+          <label htmlFor="email">Email (Required)</label>
           <input
             type="email"
             id="email"
