@@ -3,18 +3,51 @@
   display: flex;
 }
 
-.product-list,
-.forms-container {
-  width: 45%; 
+.sidebar {
+  width: 200px;
+  background-color: #f4f4f4;
+  transition: width 0.3s ease; /* Add transition for smoother animation */
 }
 
-.product-list {
-  margin-right: 10%; /* Adjusted for spacing */
+.sidebar-closed {
+  width: 50px; /* Set width to the size of the collapsed sidebar */
 }
 
-.forms-container {
-  display: flex;
-  flex-direction: column;
+.sidebar-toggle {
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
 }
 
-/* You can remove .product-form margin if it's no longer needed */
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu.open {
+  display: block; /* Show menu when expanded */
+}
+
+.sidebar-menu li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.sidebar-menu li:hover,
+.sidebar-menu li.active {
+  background-color: #ddd;
+}
+
+.content {
+  flex: 1; /* Occupy remaining space */
+  padding: 20px;
+  
+  min-width:100px; /* Ensure content area doesn't shrink */
+}
+
+/* Ensure that images and forms remain fixed when sidebar collapses */
+.content img,
+.content form {
+  max-width: 100%; /* Prevent shrinking */
+}
