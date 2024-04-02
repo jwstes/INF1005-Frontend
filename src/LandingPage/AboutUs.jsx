@@ -92,7 +92,7 @@ useEffect(() => {
             </div>
             <div className="alignCenter">
               <img
-                src="/src/video/rolex_video.gif"
+                src="https://cdn.discordapp.com/attachments/1224663916429180928/1224777155028713592/rolex_video.gif?ex=661eb99d&is=660c449d&hm=44a997fa5079c045074f6f062ba7a2765e28f16147e748c2a8f03c985d87d43d&"
                 alt="Promotional GIF"
                 className="gifBanner"
                 style={{ width: '100%' }}
@@ -134,12 +134,12 @@ const scrollToTop = () => {
   // Array of carousel items
   const carouselItems = [
     {
-      src: '/src/images/slide1.webp',
+      src: 'https://i.ibb.co/Y792kfM/slide2.png',
       alt: 'Elegant Rolex Watches',
       caption: 'Elegant Rolex Watches',
     },
     {
-      src: '/src/images/slide3.webp',
+      src: 'https://i.ibb.co/G2xMzWL/slide1.png',
       alt: 'Modern Rolex Timepieces',
       caption: 'Modern Rolex Timepieces',
     },
