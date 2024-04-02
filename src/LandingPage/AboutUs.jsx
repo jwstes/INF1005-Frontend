@@ -134,12 +134,12 @@ const scrollToTop = () => {
   // Array of carousel items
   const carouselItems = [
     {
-      src: 'https://i.ibb.co/Y792kfM/slide2.png',
+      src: 'https://cdn.discordapp.com/attachments/1224663916429180928/1224778468643045437/3RwcyKZ.png?ex=661ebad6&is=660c45d6&hm=5bd02e612381e0b497ce15c46296577a1cecdf370ba050f0ae45f46be71fe37d&',
       alt: 'Elegant Rolex Watches',
       caption: 'Elegant Rolex Watches',
     },
     {
-      src: 'https://i.ibb.co/G2xMzWL/slide1.png',
+      src: 'https://cdn.discordapp.com/attachments/1224663916429180928/1224778469188309233/4sFmGFY.png?ex=661ebad6&is=660c45d6&hm=ca8ea7dc3ba982c4992742c93adf7f58fa128326f91617336445dc478db82c79&',
       alt: 'Modern Rolex Timepieces',
       caption: 'Modern Rolex Timepieces',
     },
