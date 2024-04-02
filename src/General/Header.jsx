@@ -29,9 +29,6 @@ function Header() {
                               </ul>
                           </li>
                           <li className="nav-item">
-                              <a className="nav-link" href="#">Custom Orders</a>
-                          </li>
-                          <li className="nav-item">
                               <a className="nav-link" href="/Feedback">Feedback</a>
                           </li>
                       </ul>

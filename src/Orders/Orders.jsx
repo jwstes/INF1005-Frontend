@@ -9,7 +9,11 @@ function Orders() {
         const userEmail = localStorage.getItem('userEmail');
         const response = await fetch('http://35.212.170.89:5000/api/order/read.php?user='+userEmail);
         const data = await response.json();
-        setOrders(data.data);
+
+        if(data.message != "No Orders Found"){
+          setOrders(data.data);
+        }
+        
       } catch (error) {
         console.error("Failed to fetch orders:", error);
       }
