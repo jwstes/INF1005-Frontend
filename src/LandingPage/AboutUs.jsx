@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faGem, faCertificate, faUsers, faGlobe, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import './AboutUs.css'; // Import CSS file for styling
 
+
 function AboutUs() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -39,6 +40,23 @@ window.addEventListener('scroll', handleScroll);
 document.addEventListener('DOMContentLoaded', function() {
   handleScroll();
 });
+
+const [iconSize, setIconSize] = useState('3x');
+
+useEffect(() => {
+  function handleResize() {
+    if (window.innerWidth <= 768) {
+      setIconSize('2x');
+    } else {
+      setIconSize('3x');
+    }
+  }
+
+  window.addEventListener('resize', handleResize);
+  handleResize(); // Call once on component mount
+
+  return () => window.removeEventListener('resize', handleResize);
+}, []);
 
 
   useEffect(() => {
@@ -180,7 +198,7 @@ const scrollToTop = () => {
         <Row>
           <Col sm={4}>
             <div className="aboutUsFeature" id="unparalleledPrecision">
-              <FontAwesomeIcon icon={faClock} size="3x" />
+            <FontAwesomeIcon icon={faClock} size={iconSize} />
               <h2>Unparalleled Precision</h2>
               <p>
                 Renowned for accuracy, Rolex watches are certified chronometers, a testament to our technical prowess.
@@ -189,7 +207,7 @@ const scrollToTop = () => {
           </Col>
           <Col sm={4}>
             <div className="aboutUsFeature" id="masterfulCraftsmanship">
-              <FontAwesomeIcon icon={faGem} size="3x" />
+              <FontAwesomeIcon icon={faGem} size={iconSize} />
               <h3>Masterful Craftsmanship</h3>
               <p>
                 From design to assembly, every Rolex is crafted with meticulous attention to detail, ensuring sublime beauty.
@@ -198,7 +216,7 @@ const scrollToTop = () => {
           </Col>
           <Col sm={4}>
             <div className="aboutUsFeature" id="legacyOfExcellence">
-              <FontAwesomeIcon icon={faCertificate} size="3x" />
+              <FontAwesomeIcon icon={faCertificate} size={iconSize} />
               <h3>Legacy of Excellence</h3>
               <p>
                 A symbol of excellence since 1905, Rolex watches are an enduring legacy of luxury and performance.

@@ -243,3 +243,54 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Adjust root font size for better scaling */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .VideoTextBlock h3,
+  .VideoTextBlock p {
+    font-size: 2rem; /* Adjusted for smaller screens */
+  }
+
+  /* Adjust carousel control size and position */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    top: 0;
+    bottom: 0;
+    width: 10%;
+  }
+
+  .aboutUsFeature h2, .aboutUsFeature h3 {
+    font-size: 1.5rem; /* Smaller text in features */
+  }
+
+  .aboutUsFeature p {
+    font-size: 1rem; /* Smaller text in features */
+  }
+
+  /* Smaller badges */
+  .badge {
+    font-size: 0.75rem;
+    padding: 0.25em 0.4em;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Adjust grid layout for features to single column */
+  #aboutUsFeatures .row {
+    flex-direction: column;
+  }
+
+  .aboutUsFeature {
+    margin-bottom: 1rem; /* Add space between stacked features */
+  }
+}
