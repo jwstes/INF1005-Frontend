@@ -29,6 +29,11 @@ function RegisterForm() {
         }
     };
 
+    function validatePassword(password) {
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        return regex.test(password);
+    }
+
     const processRegister = async () => {
         if (!email || !password || !confirmPassword) {
             setValidationMessage('Please fill out all fields.');
@@ -42,6 +47,13 @@ function RegisterForm() {
             setValidationMessage('You must accept the Terms & Conditions.');
             return;
         }
+
+        if(!validatePassword(password)){
+            setValidationMessage('Password must be at least 8 characters long, contain an uppercase letter, digit and at least one special cahracter.');
+            return;
+        }
+
+        
         
 
         try {

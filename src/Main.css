@@ -279,3 +279,6 @@ p{
 }
 
 
+.formArea form {
+    min-width: 40%;
+}
