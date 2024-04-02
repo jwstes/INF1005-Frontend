@@ -42,7 +42,7 @@ const DeleteProductForm = () => {
 
   return (
     <div className="product-form-container">
-      <h2>Delete Product</h2>
+      {/* <h2>Delete Product</h2> */}
       {errors.submit && <div className="error">{errors.submit}</div>}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
