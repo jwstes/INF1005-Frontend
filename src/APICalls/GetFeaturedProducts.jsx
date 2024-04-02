@@ -25,7 +25,9 @@ const GetFeaturedProducts = () => {
                     if(watches[j]['id'] == productID){
                         featuredProductsGridHTML += `<div class="col">`;
                         featuredProductsGridHTML += `<div class="card" style="width: 18rem">`;
+                        featuredProductsGridHTML += `<div class="cardImageContainer">`
                         featuredProductsGridHTML += `<img src="http://35.212.170.89/images/${watches[j]['images']['img1']}" class="card-img-top" alt="Rolex"></img>`;
+                        featuredProductsGridHTML += `</div>`;
                         featuredProductsGridHTML += `<div class="card-body">`;
                         featuredProductsGridHTML += `<h5 class="card-title">${watches[j]['name']}</h5>`;
                         featuredProductsGridHTML += `<p class="card-text">${watches[j]['description']}</p>`;

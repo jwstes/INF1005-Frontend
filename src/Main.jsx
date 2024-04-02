@@ -71,10 +71,20 @@ const HomePage = () => {
 };
 
 const FeedbackPage = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isAdmin } = useAuth();
+  console.log(isLoggedIn, isAdmin);
+  const renderHeader = () => {
+    if (isLoggedIn){
+      if(isAdmin){
+        return <AdminHeader />;
+      }
+      return <UserHeader />;
+    }
+    return <Header />;
+  }
   return (
     <>
-      {isLoggedIn ? <UserHeader /> : <Header />}
+      {renderHeader()}
       <Feedback />
   
       <Footer />
@@ -83,10 +93,20 @@ const FeedbackPage = () => {
 };
 
 const AboutUsPage = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isAdmin } = useAuth();
+  console.log(isLoggedIn, isAdmin);
+  const renderHeader = () => {
+    if (isLoggedIn){
+      if(isAdmin){
+        return <AdminHeader />;
+      }
+      return <UserHeader />;
+    }
+    return <Header />;
+  }
   return (
     <>
-      {isLoggedIn ? <UserHeader /> : <Header />}
+      {renderHeader()}
       <AboutUs/>
   
       <Footer />
@@ -95,10 +115,20 @@ const AboutUsPage = () => {
 };
 
 const RegisterPage = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isAdmin } = useAuth();
+  console.log(isLoggedIn, isAdmin);
+  const renderHeader = () => {
+    if (isLoggedIn){
+      if(isAdmin){
+        return <AdminHeader />;
+      }
+      return <UserHeader />;
+    }
+    return <Header />;
+  }
   return (
     <>
-      {isLoggedIn ? <UserHeader /> : <Header />}
+      {renderHeader()}
       <RegisterForm />
       <Footer />
     </>
@@ -106,10 +136,20 @@ const RegisterPage = () => {
 };
 
 const LoginPage = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isAdmin } = useAuth();
+  console.log(isLoggedIn, isAdmin);
+  const renderHeader = () => {
+    if (isLoggedIn){
+      if(isAdmin){
+        return <AdminHeader />;
+      }
+      return <UserHeader />;
+    }
+    return <Header />;
+  }
   return (
     <>
-      {isLoggedIn ? <UserHeader /> : <Header />}
+      {renderHeader()}
       <LoginForm />
       <Footer />
     </>
@@ -117,10 +157,20 @@ const LoginPage = () => {
 };
 
 const ViewProductPage = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isAdmin } = useAuth();
+  console.log(isLoggedIn, isAdmin);
+  const renderHeader = () => {
+    if (isLoggedIn){
+      if(isAdmin){
+        return <AdminHeader />;
+      }
+      return <UserHeader />;
+    }
+    return <Header />;
+  }
   return (
     <>
-      {isLoggedIn ? <UserHeader /> : <Header />}
+      {renderHeader()}
       <BannerSale />
       <ViewProduct />
       <Footer />
@@ -131,10 +181,20 @@ const ViewProductPage = () => {
 };
 
 const CategoryPage = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isAdmin } = useAuth();
+  console.log(isLoggedIn, isAdmin);
+  const renderHeader = () => {
+    if (isLoggedIn){
+      if(isAdmin){
+        return <AdminHeader />;
+      }
+      return <UserHeader />;
+    }
+    return <Header />;
+  }
   return (
     <>
-      {isLoggedIn ? <UserHeader /> : <Header />}
+      {renderHeader()}
       <BannerSale />
       <ProductGrid />
       
@@ -145,10 +205,20 @@ const CategoryPage = () => {
 
 
 const CartPage = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isAdmin } = useAuth();
+  console.log(isLoggedIn, isAdmin);
+  const renderHeader = () => {
+    if (isLoggedIn){
+      if(isAdmin){
+        return <AdminHeader />;
+      }
+      return <UserHeader />;
+    }
+    return <Header />;
+  }
   return (
     <>
-      {isLoggedIn ? <UserHeader /> : <Header />}
+      {renderHeader()}
       <Cart />
       <Footer />
     </>
@@ -156,20 +226,40 @@ const CartPage = () => {
 }
 
 const CheckoutPage = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isAdmin } = useAuth();
+  console.log(isLoggedIn, isAdmin);
+  const renderHeader = () => {
+    if (isLoggedIn){
+      if(isAdmin){
+        return <AdminHeader />;
+      }
+      return <UserHeader />;
+    }
+    return <Header />;
+  }
   return (
     <>
-      {isLoggedIn ? <UserHeader /> : <Header />}
+      {renderHeader()}
       <Checkout />
       <Footer />
     </>
   );
 }
 const PaymentPage = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isAdmin } = useAuth();
+  console.log(isLoggedIn, isAdmin);
+  const renderHeader = () => {
+    if (isLoggedIn){
+      if(isAdmin){
+        return <AdminHeader />;
+      }
+      return <UserHeader />;
+    }
+    return <Header />;
+  }
   return (
     <>
-      {isLoggedIn ? <UserHeader /> : <Header />}
+      {renderHeader()}
       <Payment />
       <Footer />
     </>
@@ -178,10 +268,20 @@ const PaymentPage = () => {
 
 
 const PaymentSuccessPage = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isAdmin } = useAuth();
+  console.log(isLoggedIn, isAdmin);
+  const renderHeader = () => {
+    if (isLoggedIn){
+      if(isAdmin){
+        return <AdminHeader />;
+      }
+      return <UserHeader />;
+    }
+    return <Header />;
+  }
   return (
     <>
-      {isLoggedIn ? <UserHeader /> : <Header />}
+      {renderHeader()}
       <PaymentSuccess />
       <Footer />
     </>
@@ -189,10 +289,20 @@ const PaymentSuccessPage = () => {
 }
 
 const PaymentErrorPage = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isAdmin } = useAuth();
+  console.log(isLoggedIn, isAdmin);
+  const renderHeader = () => {
+    if (isLoggedIn){
+      if(isAdmin){
+        return <AdminHeader />;
+      }
+      return <UserHeader />;
+    }
+    return <Header />;
+  }
   return (
     <>
-      {isLoggedIn ? <UserHeader /> : <Header />}
+      {renderHeader()}
       <PaymentError />
       <Footer />
     </>
@@ -200,10 +310,20 @@ const PaymentErrorPage = () => {
 }
 
 const OrdersPage = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isAdmin } = useAuth();
+  console.log(isLoggedIn, isAdmin);
+  const renderHeader = () => {
+    if (isLoggedIn){
+      if(isAdmin){
+        return <AdminHeader />;
+      }
+      return <UserHeader />;
+    }
+    return <Header />;
+  }
   return (
     <>
-      {isLoggedIn ? <UserHeader /> : <Header />}
+      {renderHeader()}
       <Orders />
       <Footer />
     </>
@@ -211,10 +331,20 @@ const OrdersPage = () => {
 }
 
 const ManagementComponent = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isAdmin } = useAuth();
+  console.log(isLoggedIn, isAdmin);
+  const renderHeader = () => {
+    if (isLoggedIn){
+      if(isAdmin){
+        return <AdminHeader />;
+      }
+      return <UserHeader />;
+    }
+    return <Header />;
+  }
   return (
     <>
-    {isLoggedIn ? <UserHeader /> : <Header />}
+    {renderHeader()}
     <ManagementPage/>
 
     <Footer />

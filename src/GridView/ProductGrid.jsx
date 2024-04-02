@@ -32,9 +32,13 @@ function ProductGrid() {
             var watches = data['data'];
             for (let j = 0; j < watches.length; j++) {
                 if(watches[j]['category_name'] == displayCategoryName){
+
+                    
                     productsGridHTML += `<div class="col">`;
                     productsGridHTML += `<div class="card" style="width: 18rem">`;
+                    productsGridHTML += `<div class="cardImageContainer">`
                     productsGridHTML += `<img src="http://35.212.170.89/images/${watches[j]['images']['img1']}" class="card-img-top" alt="rolex"></img>`;
+                    productsGridHTML += `</div>`
                     productsGridHTML += `<div class="card-body">`;
                     productsGridHTML += `<h2 class="card-title">${watches[j]['name']}</h2>`;
                     productsGridHTML += `<p class="card-text">${watches[j]['description']}</p>`;
