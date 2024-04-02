@@ -27,6 +27,7 @@ const ProductList = () => {
           </div>
           <div className="product-details">
             <h5>{product.name}</h5>
+            <p>ID: {product.id}</p> {/* Displaying the product ID */}
             <p>{product.description}</p>
             <p>${product.price}</p>
           </div>
