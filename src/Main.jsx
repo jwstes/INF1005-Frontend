@@ -7,6 +7,7 @@ import {
 
 import Header from './General/Header.jsx'
 import UserHeader from './General/UserHeader.jsx';
+import AdminHeader from './General/AdminHeader.jsx';
 import Footer from './General/Footer.jsx'
 
 import BannerSale from './Promotion/BannerSale.jsx';
@@ -46,10 +47,21 @@ import './Main.css'
 
 
 const HomePage = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isAdmin } = useAuth();
+  console.log(isLoggedIn, isAdmin);
+  const renderHeader = () => {
+    if (isLoggedIn){
+      if(isAdmin){
+        return <AdminHeader />;
+      }
+      return <UserHeader />;
+    }
+    return <Header />;
+  }
+
   return (
     <>
-      {isLoggedIn ? <UserHeader /> : <Header />}
+      {renderHeader()}
       <Jumbotron />
       <FeaturedProducts />
       <GetFeaturedProducts />

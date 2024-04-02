@@ -21,20 +21,7 @@ function LoginForm() {
         if (!email || !password) {
             setValidationMessage('Please fill out all fields.');
             return;
-        }else{
-            const resp = await fetch('http://35.212.170.89:5000/api/salt/retrieve.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email: email
-                }),
-            });
-            const data = await resp.json();
-            const salt = data['salt'];
-            const hashedPassword = await hashPassword(password, salt);
-            
+        }else{            
             const loginResp = await fetch('http://35.212.170.89:5000/api/user/authenticate.php', {
                 method: 'POST',
                 headers: {
@@ -42,7 +29,7 @@ function LoginForm() {
                 },
                 body: JSON.stringify({
                     email: email,
-                    hashed_password : hashedPassword
+                    password : password
                 }),
             });
 
@@ -51,13 +38,19 @@ function LoginForm() {
             }
             else{
                 const respData = await loginResp.json();
+                if(respData['admin'] == 1){
+                    sessionStorage.setItem('userAdmin', "1");
+                }
+                else{
+                    sessionStorage.setItem('userAdmin', "0");
+                }
                 localStorage.setItem('bt', respData['token']);
                 localStorage.setItem('userID', respData['user_id']);
                 localStorage.setItem('userEmail', email);
                 setValidationMessage('Login successful!');
                 setEmail('');
                 setPassword('');
-                login(email);
+                login(email, respData['admin']);
             }
         }
         

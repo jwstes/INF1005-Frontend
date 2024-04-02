@@ -45,20 +45,6 @@ function RegisterForm() {
         
 
         try {
-            const response = await fetch('http://35.212.170.89:5000/api/salt/generate.php');
-            if (!response.ok) {
-                throw new Error('Failed to fetch the salt');
-            }
-            const { data } = await response.json();
-            const salt = data[0].salt;
-            
-
-            const hashedPassword = await hashPassword(password, salt);
-            
-            // console.log(email);
-            // console.log(hashedPassword);
-            // console.log(salt);
-
             const createUserResponse = await fetch('http://35.212.170.89:5000/api/user/create.php', {
                 method: 'POST',
                 headers: {
@@ -66,8 +52,8 @@ function RegisterForm() {
                 },
                 body: JSON.stringify({
                     email: email,
-                    hashed_password: hashedPassword,
-                    salt: salt,
+                    password: password,
+                    admin: 0,
                 }),
             });
             var resp = await createUserResponse.text();
