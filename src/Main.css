@@ -13,13 +13,16 @@ p{
 }
 .btn-primary{
     background-color: #80b500;
+    color:#000000;
     border: none;
 }
 .btn-primary:hover{
     background-color: #5d8500;
+    color:#000000;
 }
 .btn-primary:active{
     background-color: #5d8500 !important;
+    color:#000000;
 }
 
 .mr1{

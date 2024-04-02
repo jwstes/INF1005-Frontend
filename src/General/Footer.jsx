@@ -4,9 +4,9 @@ function Header() {
 
   return (
     <>
-          <nav className="navbar navbar-expand-lg bg-body-tertiary">
-              <div className="container-fluid footerSection">
-                  <p style={{margin: '0'}}>GROUP PROJECT</p>
+          <nav className="navbar navbar-expand-lg bg-body-tertiary" aria-label="Header Navigation">
+              <div className="container-fluid footerSection" aria-labelledby="headerTitle">
+                  <h2 id="headerTitle">GROUP PROJECT</h2>
                   <p>Done By:</p>
                   <ul>
                     <li>Gabriel Lee (2301906)</li>

@@ -19,41 +19,53 @@ function Feedback() {
     setMessage(''); // Reset form inputs after submission
   };
 
-  return (
-    <div className="feedbackContainer"> {/* Changed from "contactUsContainer" to "feedbackContainer" */}
-      <h1>Feedback</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          placeholder="First Name (Optional)"
-        />
-        <input
-          type="text"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          placeholder="Last Name (Mandatory)"
-          required
-        />
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email (Mandatory)"
-          required
-        />
-        <textarea
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Your message here (Minimum 20 characters)"
-          rows="4"
-          minLength="20"
-          required
-        ></textarea>
-        <button type="submit">Send Feedback</button>
-      </form>
-    </div>
+  return(
+    <main id="feedbackMainContent">
+      <header>
+        <h1>Feedback</h1>
+      </header>
+      <div className="feedbackContainer"> {/* Changed from "contactUsContainer" to "feedbackContainer" */}
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="firstName">First Name (Optional)</label>
+          <input
+            type="text"
+            id="firstName"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            placeholder="First Name"
+          />
+          <label htmlFor="lastName">Last Name (Mandatory)</label>
+          <input
+            type="text"
+            id="lastName"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            placeholder="Last Name"
+            required
+          />
+          <label htmlFor="email">Email (Mandatory)</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            required
+          />
+          <label htmlFor="message">Your message here (Minimum 20 characters)</label>
+          <textarea
+            id="message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="Your message here"
+            rows="4"
+            minLength="20"
+            required
+          ></textarea>
+          <button type="submit">Send Feedback</button>
+        </form>
+      </div>
+    </main>
   );
 }
 

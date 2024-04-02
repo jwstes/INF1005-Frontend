@@ -139,11 +139,16 @@ const scrollToTop = () => {
   };
 
   return (
-    <div className="aboutUsPage">
+    
+    <main className="aboutUsPage">
+    <header>
       <div id="promotionalBanner" className="promotionalBannerContainer">
-        <PromotionalBanner />
+        <PromotionalBanner/>
       </div>
-      <Container id="carouselContainer" fluid className={`carouselContainer border ${scrolled ? 'scrolled' : ''}`}>
+    </header>
+
+    <section id="carouselContainer" className={`carouselContainer border ${scrolled ? 'scrolled' : ''}`}>
+      <Container fluid>
         <Row>
           <Col>
             <Carousel className='rolexCarousel' interval={1000} controls>
@@ -152,10 +157,14 @@ const scrollToTop = () => {
           </Col>
         </Row>
       </Container>
+    </section>
 
-      <HistoryAndInnovation />
+    <section id="historyAndInnovation">
+     <HistoryAndInnovation/>
+    </section>
 
-      <Container fluid className={`aboutUsContent border ${scrolled ? 'scrolled' : ''}`}>
+    <section id="aboutRolex" className={`aboutUsContent border ${scrolled ? 'scrolled' : ''}`}>
+      <Container fluid>
         <h1>About Rolex</h1>
         <p>
           Established in 1905, Rolex stands at the pinnacle of watchmaking excellence, embodying luxury, precision, and innovation. Each watch is a testament to our commitment to unmatched quality, merging traditional craftsmanship with avant-garde technology.
@@ -164,13 +173,15 @@ const scrollToTop = () => {
           Discover the world of Rolex, where every timepiece tells a story of relentless pursuit of perfection.
         </p>
       </Container>
+    </section>
 
-      <Container id="aboutUsContent" fluid className={`aboutUsContent border ${scrolled ? 'scrolled' : ''}`}>
+    <section id="aboutUsFeatures" className={`aboutUsContent border ${scrolled ? 'scrolled' : ''}`}>
+      <Container fluid>
         <Row>
           <Col sm={4}>
             <div className="aboutUsFeature" id="unparalleledPrecision">
               <FontAwesomeIcon icon={faClock} size="3x" />
-              <h3>Unparalleled Precision</h3>
+              <h2>Unparalleled Precision</h2>
               <p>
                 Renowned for accuracy, Rolex watches are certified chronometers, a testament to our technical prowess.
               </p>
@@ -217,13 +228,16 @@ const scrollToTop = () => {
           <Col sm={4}></Col>
         </Row>
       </Container>
+    </section>
 
+    <footer>
       {/* Scroll to top button */}
       <div className="scrollToTop" onClick={scrollToTop}>
         <FontAwesomeIcon icon={faArrowUp} />
       </div>
-    </div>
-  );
+    </footer>
+  </main>
+);
 }
 
 export default AboutUs;
