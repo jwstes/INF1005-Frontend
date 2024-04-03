@@ -52,14 +52,13 @@ function Feedback() {
             placeholder="Email"
             required
           />
-          <label htmlFor="message">Your message here (Minimum 20 characters)</label>
+          <label htmlFor="message">Message</label>
           <textarea
             id="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Your message here"
             rows="4"
-            minLength="20"
             required
           ></textarea>
           <button type="submit">Send Feedback</button>
