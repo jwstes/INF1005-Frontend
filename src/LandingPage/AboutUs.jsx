@@ -88,7 +88,7 @@ useEffect(() => {
           <Col className="promotionalItem">
             <div className="VideoTextBlock">
               <h3>ABOUT US</h3>
-              <p>About Us</p>
+              {/* <p>About Us</p> */}
             </div>
             <div className="alignCenter">
               <img
