@@ -181,8 +181,6 @@ const scrollToTop = () => {
      <HistoryAndInnovation/>
     </section>
 
-    <section id="aboutRolex" className={`aboutUsContent border ${scrolled ? 'scrolled' : ''}`}>
-      <Container fluid>
         <h1>About Rolex</h1>
         <p>
           Established in 1905, Rolex stands at the pinnacle of watchmaking excellence, embodying luxury, precision, and innovation. Each watch is a testament to our commitment to unmatched quality, merging traditional craftsmanship with avant-garde technology.
@@ -190,8 +188,6 @@ const scrollToTop = () => {
         <p>
           Discover the world of Rolex, where every timepiece tells a story of relentless pursuit of perfection.
         </p>
-      </Container>
-    </section>
 
     <section id="aboutUsFeatures" className={`aboutUsContent border ${scrolled ? 'scrolled' : ''}`}>
       <Container fluid>
