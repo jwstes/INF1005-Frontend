@@ -6,7 +6,7 @@ function BannerSale() {
     <>
         <div class="alert alert-success" role="alert">
             <h4 class="alert-heading">50% Sale!!</h4>
-            <p>Happening right now.... Buy rolex watches at 50% discount u fucking dweeb. Purchase it rn owefiuwehfuiwehfw</p>
+            <p>Happening Now!! Buy a Rolex at 50% off! Get It Now!!</p>
         </div>
     </>
   )

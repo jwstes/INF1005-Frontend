@@ -84,7 +84,7 @@ function ViewProduct() {
                             <p id="productID">SKU: 1011-3069</p>
                             <p>Category: <span className="badge text-bg-secondary" id="productCategory">New</span></p>
                             <hr></hr>
-                            <p id="productDescription">this for me is the rolex watch and so i have fuck youir mother this for me is the rolex watch and so i have fuck youir mother this for me is the rolex watch and so i have fuck youir mother </p>
+                            <p id="productDescription">LOREM IPSUM BRO</p>
                         </div>
                         <hr></hr>
                         <div>
