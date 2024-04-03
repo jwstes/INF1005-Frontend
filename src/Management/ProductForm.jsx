@@ -10,9 +10,9 @@ import { faUser, faDollarSign, faInfoCircle } from '@fortawesome/free-solid-svg-
 const ProductForm = () => {
   // Define the validation schema using Yup
   const validationSchema = Yup.object().shape({
-    name: Yup.string()
-      .required('Please enter a name for your new product')
-      .matches(/^[a-zA-Z0-9\s]+$/, 'Only letters, numbers, and spaces are allowed'),
+    // name: Yup.string()
+    //   .required('Please enter a name for your new product')
+    //   .matches(/^[a-zA-Z0-9\s]+$/, 'Only letters, numbers, and spaces are allowed'),
     price: Yup.number()
       .typeError('Please enter a valid price')
       .required('Please enter a price for your new product')
