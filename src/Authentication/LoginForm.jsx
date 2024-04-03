@@ -22,7 +22,7 @@ function LoginForm() {
             setValidationMessage('Please fill out all fields.');
             return;
         }else{            
-            const loginResp = await fetch('https://35.212.170.89/api/user/authenticate.php', {
+            const loginResp = await fetch('http://35.212.170.89:5000/api/user/authenticate.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

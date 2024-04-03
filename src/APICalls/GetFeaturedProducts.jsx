@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 const GetFeaturedProducts = () => {
   useEffect(() => {
-    fetch('https://35.212.170.89/api/product/read.php')
+    fetch('http://35.212.170.89:5000/api/product/read.php')
       .then(response => response.json())
       .then(
         data => {
@@ -26,7 +26,7 @@ const GetFeaturedProducts = () => {
                         featuredProductsGridHTML += `<div class="col">`;
                         featuredProductsGridHTML += `<div class="card" style="width: 18rem">`;
                         featuredProductsGridHTML += `<div class="cardImageContainer">`
-                        featuredProductsGridHTML += `<img src="http://35.212.170.89/images/${watches[j]['images']['img1']}" class="card-img-top" alt="Rolex"></img>`;
+                        featuredProductsGridHTML += `<img src="http://35.212.170.89:5000/images/${watches[j]['images']['img1']}" class="card-img-top" alt="Rolex"></img>`;
                         featuredProductsGridHTML += `</div>`;
                         featuredProductsGridHTML += `<div class="card-body">`;
                         featuredProductsGridHTML += `<h5 class="card-title">${watches[j]['name']}</h5>`;

@@ -12,7 +12,7 @@ function ProductGrid() {
     ] = useState([]);
 
     useEffect(() => {
-        fetch(`https://35.212.170.89/api/product/read.php`)
+        fetch(`http://35.212.170.89:5000/api/product/read.php`)
         .then(response => response.json())
         .then(data => {
             var displayCategoryName = "";
@@ -37,7 +37,7 @@ function ProductGrid() {
                     productsGridHTML += `<div class="col">`;
                     productsGridHTML += `<div class="card" style="width: 18rem">`;
                     productsGridHTML += `<div class="cardImageContainer">`
-                    productsGridHTML += `<img src="http://35.212.170.89/images/${watches[j]['images']['img1']}" class="card-img-top" alt="rolex"></img>`;
+                    productsGridHTML += `<img src="http://35.212.170.89:5000/images/${watches[j]['images']['img1']}" class="card-img-top" alt="rolex"></img>`;
                     productsGridHTML += `</div>`
                     productsGridHTML += `<div class="card-body">`;
                     productsGridHTML += `<h2 class="card-title">${watches[j]['name']}</h2>`;

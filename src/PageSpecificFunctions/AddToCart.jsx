@@ -13,7 +13,7 @@ const AddToCart = () => {
       }
 
       var productID = JSON.parse(sessionStorage.getItem('currentViewItem'))['id'];
-      fetch(`https://35.212.170.89/api/product/read_single.php?id=${productID}`)
+      fetch(`http://35.212.170.89:5000/api/product/read_single.php?id=${productID}`)
         .then(response => response.json())
         .then(data => {
           let cartItems = JSON.parse(sessionStorage.getItem('cartItems')) || [];

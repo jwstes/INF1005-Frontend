@@ -57,7 +57,7 @@ function Cart() {
                     <div className="Products">
                         {products.map((product) => (
                             <div className="Product" key={product.id}>
-                                <img src={`http://35.212.170.89/images/${product.images.img1}`} alt="Product" />
+                                <img src={`http://35.212.170.89:5000/images/${product.images.img1}`} alt="Product" />
                                 <div className="ProductDescription">
                                     <h3 className="productTitle">{product.name}</h3>
                                     <p className="productCategory">{product.category_name}</p>

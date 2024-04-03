@@ -5,7 +5,7 @@ const ProductList = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('https://35.212.170.89/api/product/read.php')
+    fetch('http://35.212.170.89:5000/api/product/read.php')
       .then(response => response.json())
       .then(data => {
         const allProducts = data['data'] || [];
@@ -22,7 +22,7 @@ const ProductList = () => {
             <div className="card">
               <div className="card-img-top">
                 {product.images.img1 ? (
-                  <img src={`http://35.212.170.89/images/${product.images.img1}`} alt={product.name} className="img-fluid"/>
+                  <img src={`http://35.212.170.89:5000/images/${product.images.img1}`} alt={product.name} className="img-fluid"/>
                 ) : (
                   <img src="/alt-image.jpg" alt="No Image Available" className="img-fluid"/>
                 )}

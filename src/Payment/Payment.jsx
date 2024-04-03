@@ -89,7 +89,7 @@ function Payment() {
       }
     }
 
-    var createOderResponse = await fetch('https://35.212.170.89/api/order/create.php', {
+    var createOderResponse = await fetch('http://35.212.170.89:5000/api/order/create.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

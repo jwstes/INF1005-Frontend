@@ -12,7 +12,7 @@ function ViewProduct() {
     ] = useState([]);
 
     useEffect(() => {
-        fetch(`https://35.212.170.89/api/product/read_single.php?id=${productId}`)
+        fetch(`http://35.212.170.89:5000/api/product/read_single.php?id=${productId}`)
         .then(response => response.json())
         .then(data => {
             const price = data['price'];
@@ -26,7 +26,7 @@ function ViewProduct() {
             const items = imageUrls.map((url, index) => (
                 
                 <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
-                    <img src={`http://35.212.170.89/images/${url}`} className="d-block w-100 carouselImageItem" alt={`Slide ${index}`} />
+                    <img src={`http://35.212.170.89:5000/images/${url}`} className="d-block w-100 carouselImageItem" alt={`Slide ${index}`} />
                 </div>
             ));
     

@@ -35,7 +35,7 @@ function Checkout() {
                 <div className="cartProducts">
                     {cartProducts.map((product) => (
                         <div className="cartProduct" key={product.id}>
-                            <img src={`http://35.212.170.89/images/${product.images.img1}`} alt="Product" />
+                            <img src={`http://35.212.170.89:5000/images/${product.images.img1}`} alt="Product" />
                             <div className="ProductDescription">
                                 <h3 className="cartProductTitle">{product.name}</h3>
                                 <p className="cartProductCategory">{product.category_name}</p>
