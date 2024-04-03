@@ -90,34 +90,34 @@ function RegisterForm() {
 
 
   return (
-      <>
-          <div className='pageHeading'>
-              <h3>Register</h3>
-              <p>Sign up with us to keep track of your orders and shop more?</p>
-          </div>
-          <div className="formArea">
-              <form>
-                  <div className="mb-3">
-                      <label className="form-label">Email Address</label>
-                      <input type="email" className="form-control" id="email" name="email" value={email} onChange={handleChange}></input>
-                  </div>
-                  <div className="mb-3">
-                      <label className="form-label">Password</label>
-                      <input type="password" className="form-control" id="password" name="password" value={password} onChange={handleChange}></input>
-                  </div>
-                  <div className="mb-3">
-                      <label className="form-label">Confirm Password</label>
-                      <input type="password" className="form-control" id="cfpassword" name="cfpassword" value={confirmPassword} onChange={handleChange}></input>
-                  </div>
-                  <div className="mb-3 form-check">
-                      <input type="checkbox" className="form-check-input" id="tos" name="tos" checked={tosAccepted} onChange={handleChange}></input>
-                      <label className="form-check-label">I accept to the <a href="#">Terms & Conditions</a></label>
-                  </div>
-                  {validationMessage && <div className="alert alert-info" role="alert">{validationMessage}</div>}
-                  <button type="button" onClick={processRegister} className="btn btn-primary">Submit</button>
-              </form>
-          </div>
-      </>
+    <main>
+        <div className='pageHeading'>
+            <h1>Register</h1>
+            <p>Sign up with us to keep track of your orders and shop more?</p>
+        </div>
+        <div className="formArea">
+            <form>
+                <div className="mb-3">
+                    <label className="form-label" htmlFor="email">Email Address</label>
+                    <input type="email" className="form-control" id="email" name="email" value={email} onChange={handleChange}></input>
+                </div>
+                <div className="mb-3">
+                    <label className="form-label" htmlFor="password">Password</label>
+                    <input type="password" className="form-control" id="password" name="password" value={password} onChange={handleChange}></input>
+                </div>
+                <div className="mb-3">
+                    <label className="form-label" htmlFor="cfpassword">Confirm Password</label>
+                    <input type="password" className="form-control" id="cfpassword" name="cfpassword" value={confirmPassword} onChange={handleChange}></input>
+                </div>
+                <div className="mb-3 form-check">
+                    <input type="checkbox" className="form-check-input" id="tos" name="tos" checked={tosAccepted} onChange={handleChange}></input>
+                    <label className="form-check-label" htmlFor="tos">I accept to the <a href="#">Terms & Conditions</a></label>
+                </div>
+                    {validationMessage && <div className="alert alert-info" role="alert">{validationMessage}</div>}
+                    <button type="button" onClick={processRegister} className="btn btn-primary">Submit</button>
+            </form>
+        </div>
+  </main>
   )
 }
 

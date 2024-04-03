@@ -58,26 +58,26 @@ function LoginForm() {
 
 
   return (
-      <>
-          <div className='pageHeading'>
-              <h3>Login</h3>
-              <p>Login now to keep track of your orders and shop more?</p>
-          </div>
-          <div className="formArea">
-              <form>
-                  <div className="mb-3">
-                      <label className="form-label">Email Address</label>
-                      <input type="email" className="form-control" id="email" name="email" value={email} onChange={handleChange}></input>
-                  </div>
-                  <div className="mb-3">
-                      <label className="form-label">Password</label>
-                      <input type="password" className="form-control" id="password" name="password" value={password} onChange={handleChange}></input>
-                  </div>
-                  {validationMessage && <div className="alert alert-info" role="alert">{validationMessage}</div>}
-                  <button type="button" onClick={processLogin} className="btn btn-primary">Submit</button>
-              </form>
-          </div>
-      </>
+     <main>
+        <div className='pageHeading'>
+            <h1>Login</h1>
+            <p>Login now to keep track of your orders and shop more?</p>
+         </div>
+        <div className="formArea">
+            <form>
+                <div className="mb-3">
+                    <label className="form-label" htmlFor="email">Email Address</label>
+                    <input type="email" className="form-control" id="email" name="email" value={email} onChange={handleChange}></input>
+                </div>
+      <div className="mb-3">
+        <label className="form-label" htmlFor="password">Password</label>
+        <input type="password" className="form-control" id="password" name="password" value={password} onChange={handleChange}></input>
+      </div>
+      {validationMessage && <div className="alert alert-info" role="alert">{validationMessage}</div>}
+      <button type="button" onClick={processLogin} className="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</main>
   )
 }
 
