@@ -7,7 +7,7 @@ function Orders() {
     const fetchOrders = async () => {
       try {
         const userEmail = localStorage.getItem('userEmail');
-        const response = await fetch('http://35.212.170.89:5000/api/order/read.php?user='+userEmail);
+        const response = await fetch('https://35.212.170.89/api/order/read.php?user='+userEmail);
         const data = await response.json();
 
         if(data.message != "No Orders Found"){

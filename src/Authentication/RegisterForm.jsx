@@ -57,7 +57,7 @@ function RegisterForm() {
         
 
         try {
-            const createUserResponse = await fetch('http://35.212.170.89:5000/api/user/create.php', {
+            const createUserResponse = await fetch('https://35.212.170.89/api/user/create.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

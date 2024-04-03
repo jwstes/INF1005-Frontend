@@ -17,7 +17,7 @@ const DeleteProductForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('http://35.212.170.89:5000/api/product/delete.php', {
+      const response = await fetch('https://35.212.170.89/api/product/delete.php', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

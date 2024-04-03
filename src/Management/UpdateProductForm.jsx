@@ -66,7 +66,7 @@ const UpdateProductForm = () => {
     }
     console.log(`Fetching details for product ID: ${productId}`);
 
-    fetch(`http://35.212.170.89:5000/api/product/read_single.php?id=${productId}`)
+    fetch(`https://35.212.170.89/api/product/read_single.php?id=${productId}`)
     .then(response => response.json())
     .then(data => {
       if (data) {
@@ -124,7 +124,7 @@ formData.category_id;
     await validationSchema.validate(submitData, { abortEarly: false });
 
     // If validation passes, submit the data
-    const response = await fetch('http://35.212.170.89:5000/api/product/update.php', {
+    const response = await fetch('https://35.212.170.89/api/product/update.php', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

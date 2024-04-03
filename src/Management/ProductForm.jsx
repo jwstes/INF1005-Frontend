@@ -72,7 +72,7 @@ const ProductForm = () => {
     };
 
       // Use fetch to send the post request
-    fetch('http://35.212.170.89:5000/api/product/create.php', fetchOptions)
+    fetch('https://35.212.170.89/api/product/create.php', fetchOptions)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Server responded with an error: ${response.statusText}`);
