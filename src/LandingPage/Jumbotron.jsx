@@ -11,7 +11,7 @@ function Jumbotron() {
                 <h3>Rolex Submariner</h3>
                 <p>Bootiful watch created by the god Midas himself, when he touched a block of wood.</p>
               </article>
-              <button className="btn btn-primary">Buy It Now</button>
+              <a href="/viewProduct?id=2" className="btn btn-primary">Buy It Now</a>
             </div>
             <div className="col alignCenter">
               <img src="https://www.thehourglass.com/wp-content/uploads/sites/15/2023/05/m126619lb-0003_modelpage_front_facing_landscape_4-14-2023.png" alt="Rolex Perpetual Date Submariner Superlative Chronometer Officially Certified" />
