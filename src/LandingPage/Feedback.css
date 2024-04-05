@@ -1,47 +1,87 @@
-.feedbackContainer {
-  text-align: left;
+/* Feedback.css */
+#feedbackMainContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.topSection {
+  display: flex;
+}
+
+.rolexImage {
+  flex: 1;
   padding: 20px;
-  background-color: #f5f5f5; /* subtle background color change */
-  max-width: 600px; /* Limiting container width for responsiveness */
-  margin: 0 auto; /* Centering the container horizontally */
+  max-width: 100%;
+  height: auto;
 }
 
-
-
-.feedbackContainer h1 {
-  margin-bottom: 20px;
-  color: #0a58ca; /* Adjusted to match Rolex's color theme */
-}
-
-.feedbackContainer form input,
-.feedbackContainer form textarea {
+.rolexImage img {
   width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 2px solid #0a58ca; /* Adjusted border color */
-  border-radius: 5px;
-  background-color: #ffffff; /* Ensuring textarea background is white for readability */
-  box-sizing: border-box; /* Including padding and border in element's total width and height */
+  height: auto;
 }
 
-.feedbackContainer form button {
+.feedbackForm {
+  flex: 1;
+  padding: 20px;
+}
+
+.feedbackForm h1 {
+  margin-bottom: 20px;
+}
+
+.feedbackForm label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.feedbackForm input,
+.feedbackForm textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #0a58ca;
+  border-radius: 5px;
+  background-color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.feedbackForm button {
   width: 100%;
   padding: 10px 20px;
   border: none;
-  background-color: #004b93; /* Darker shade for contrast */
+  background-color: #004b93;
   color: white;
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s ease; /* Adding transition for hover effect */
+  transition: background-color 0.3s ease;
 }
 
-.feedbackContainer form button:hover {
-  background-color: #003366; /* Slightly darker on hover for interaction feedback */
+.feedbackForm button:hover {
+  background-color: #003366;
 }
 
-@media (max-width: 768px) {
-  .feedbackContainer form input,
-  .feedbackContainer form textarea {
-    width: 90%;
-  }
+.middleSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.contactInfo {
+  text-align: center;
+}
+
+.contactInfo h2 {
+  margin-bottom: 10px;
+}
+
+.contactInfo p {
+  margin: 5px;
+}
+
+.bottomSection {
+  padding: 20px;
+}
+
+iframe {
+  border: none;
 }
