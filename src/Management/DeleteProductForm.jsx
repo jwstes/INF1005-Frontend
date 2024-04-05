@@ -41,26 +41,32 @@ const DeleteProductForm = () => {
   };
 
   return (
-    <div className="product-form-container">
-      {/* <h2>Delete Product</h2> */}
-      {errors.submit && <div className="error">{errors.submit}</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Product ID:</label>
-          <input
-            type="number"
-            name="id"
-            className="form-control"
-            value={productId}
-            onChange={handleInputChange}
-            disabled={isSubmitting}
-          />
-        </div>
-        <button type="submit" className="btn" disabled={isSubmitting || !productId}>
-          <FontAwesomeIcon icon={faTrash} /> {isSubmitting ? 'Deleting...' : 'Delete Product'}
-        </button>
-      </form>
-    </div>
+    <main>
+    
+      <div className="product-form-container">
+        <h2>Delete Product</h2>
+        {errors.submit && <div className="error">{errors.submit}</div>}
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="productId">Product ID:</label>
+            <input
+              type="number"
+              id="productId"
+              name="id"
+              className="form-control"
+              value={productId}
+              onChange={handleInputChange}
+              disabled={isSubmitting}
+              required
+            />
+          </div>
+          <button type="submit" className="btn" disabled={isSubmitting || !productId}>
+            <FontAwesomeIcon icon={faTrash} /> {isSubmitting ? 'Deleting...' : 'Delete Product'}
+          </button>
+        </form>
+      </div>
+    </main>
+    
   );
 };
 

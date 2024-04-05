@@ -17,7 +17,7 @@ function Cart() {
       var cartItems = JSON.parse(sessionStorage.getItem('cartItems'));
       var nCartItems = [];
       for (let i = 0; i < cartItems.length; i++) {
-        if(cartItems[i]['id'] != productId){
+        if(cartItems[i]['id'] !== productId){
             nCartItems.push(cartItems[i]);
         }
       }
@@ -34,7 +34,7 @@ function Cart() {
     const subtotal = products.reduce((acc, product) => {
         return acc + (quantities[product.id] || 1) * product.price;
       }, 0);
-      const total = subtotal; 
+    const total = subtotal; 
 
     const handleCheckout = () => {
         var allPQ = document.querySelectorAll('.productQuantity');
@@ -49,10 +49,10 @@ function Cart() {
         window.location.href = '/checkout';
     };
 
-    if(initialProducts.length != 0){
-        return (
-            <div className="cartContainer">
-                <h1>Cart</h1>
+    return (
+        <main className="cartContainer">
+            <h1>Cart</h1>
+            {initialProducts.length !== 0 ? (
                 <div className='cartRow'>
                     <div className="Products">
                         {products.map((product) => (
@@ -78,29 +78,28 @@ function Cart() {
                         ))}
                     </div>
                 </div>
-                <div className="cartInfo">
-                    <div className="cartTotal">
-                        <div className="cartSubTotal">
-                            <h2>Subtotal</h2>
-                            <span>${subtotal.toFixed(2)}</span>
-                        </div>
-                        <div className="cartFinalAmount">
-                            <h2>Total</h2>
-                            <span>${total.toFixed(2)}</span>
-                        </div>
+            ) : (
+                <div className="cartEmpty">
+                    <p>Cart Is Empty</p>
+                </div>
+            )}
+            <div className="cartInfo">
+                <div className="cartTotal">
+                    <div className="cartSubTotal">
+                        <h2>Subtotal</h2>
+                        <span>${subtotal.toFixed(2)}</span>
+                    </div>
+                    <div className="cartFinalAmount">
+                        <h2>Total</h2>
+                        <span>${total.toFixed(2)}</span>
                     </div>
                 </div>
-                <button class="btn btn-primary" style={{ float: 'right' }} onClick={handleCheckout}> Checkout </button>
             </div>
-        );
-    }
-    else{
-        return (
-            <div className="cartContainer">
-                <h1>Cart Is Empty</h1>
-            </div>
-        );
-    }
+            {initialProducts.length !== 0 && (
+                <button className="btn btn-primary" style={{ float: 'right' }} onClick={handleCheckout}>Checkout</button>
+            )}
+        </main>
+    );
 }
 
 export default Cart;

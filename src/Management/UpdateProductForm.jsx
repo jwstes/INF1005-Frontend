@@ -151,98 +151,179 @@ formData.category_id;
 
 
   return (
-    <div className="product-form-container">
+  <main>
+    <form onSubmit={handleSubmit} className="product-form-container">
       {errors.submit && <div className="error">{errors.submit}</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Product ID:</label>
-          <input
-            type="number"
-            name="id"
-            className="form-control"
-            value={formData.id}
-            onChange={handleInputChange}
-          />
-          <button type="button" onClick={fetchProductDetails} disabled={isSubmitting}>Load Product</button>
-        </div>
-        {/* Include FontAwesome icons and error handling for each field as shown in your example */}
-        <div className="form-group">
-          <label htmlFor="name">
-            <FontAwesomeIcon icon={faUser} /> Name:
-          </label>
-          <input type="text" name="name" className="form-control" value={formData.name} onChange={handleInputChange} />
-          {errors.name && <div className="error">{errors.name}</div>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="price">
-            <FontAwesomeIcon icon={faDollarSign} /> Price:
-          </label>
-          <input type="number" name="price" className="form-control" value={formData.price} onChange={handleInputChange} />
-          {errors.price && <div className="error">{errors.price}</div>}
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="sold">
-            <FontAwesomeIcon icon={faDollarSign} /> Sold:
-          </label>
-          <input type="number" name="sold" className="form-control" value={formData.sold} onChange={handleInputChange} />
-          {errors.sold && <div className="error">{errors.sold}</div>}
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="description">
-            <FontAwesomeIcon icon={faInfoCircle} /> Description:
-          </label>
-          <input type="text" name="description" className="form-control" value={formData.description} onChange={handleInputChange} />
-          {errors.description && <div className="error">{errors.description}</div>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="stock">
-            <FontAwesomeIcon icon={faInfoCircle} /> Stock:
-          </label>
-          <input type="number" name="stock" className="form-control" value={formData.stock} onChange={handleInputChange} />
-          {errors.stock && <div className="error">{errors.stock}</div>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="image1">
-            <FontAwesomeIcon icon={faInfoCircle} /> Image 1:
-          </label>
-          <input type="text" name="image1" className="form-control" value={formData.image1} onChange={handleInputChange} />
-          {errors.image1 && <div className="error">{errors.image1}</div>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="image2">
-            <FontAwesomeIcon icon={faInfoCircle} /> Image 2:
-          </label>
-          <input type="text" name="image2" className="form-control" value={formData.image2} onChange={handleInputChange} />
-          {errors.image2 && <div className="error">{errors.image2}</div>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="image3">
-            <FontAwesomeIcon icon={faInfoCircle} /> Image 3:
-          </label>
-          <input type="text" name="image3" className="form-control" value={formData.image3} onChange={handleInputChange} />
-          {errors.image3 && <div className="error">{errors.image3}</div>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="image4">
-            <FontAwesomeIcon icon={faInfoCircle} /> Image 4:
-          </label>
-          <input type="text" name="image4" className="form-control" value={formData.image4} onChange={handleInputChange} />
-          {errors.image4 && <div className="error">{errors.image4}</div>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="category_id">
-            <FontAwesomeIcon icon={faInfoCircle} /> Category ID:
-          </label>
-          <input type="text" name="category_id" className="form-control" value={formData.category_id} onChange={handleInputChange} />
-          {errors.category_id && <div className="error">{errors.category_id}</div>}
-        </div>
-        <button type="submit" className="btn" disabled={isSubmitting}>
-          {isSubmitting ? 'Updating...' : 'Update Product'}
-        </button>
-      </form>
-    </div>
+      <div className="form-group">
+        <label htmlFor="id">Product ID:</label>
+        <input
+          type="number"
+          name="id"
+          id="id"
+          className="form-control"
+          value={formData.id}
+          onChange={handleInputChange}
+          aria-describedby="id-error"
+        />
+        {errors.id && <div id="id-error" className="error">{errors.id}</div>}
+      </div>
+      <div className="form-group">
+        <label htmlFor="name">
+          <FontAwesomeIcon icon={faUser} /> Name:
+        </label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          className="form-control"
+          value={formData.name}
+          onChange={handleInputChange}
+          aria-labelledby="name-label"
+          aria-describedby="name-error"
+        />
+        {errors.name && <div id="name-error" className="error">{errors.name}</div>}
+      </div>
+      <div className="form-group">
+        <label htmlFor="price">
+          <FontAwesomeIcon icon={faDollarSign} /> Price:
+        </label>
+        <input
+          type="number"
+          name="price"
+          id="price"
+          className="form-control"
+          value={formData.price}
+          onChange={handleInputChange}
+          aria-describedby="price-error"
+        />
+        {errors.price && <div id="price-error" className="error">{errors.price}</div>}
+      </div>
+      <div className="form-group">
+        <label htmlFor="sold">
+          <FontAwesomeIcon icon={faDollarSign} /> Sold:
+        </label>
+        <input
+          type="number"
+          name="sold"
+          id="sold"
+          className="form-control"
+          value={formData.sold}
+          onChange={handleInputChange}
+          aria-describedby="sold-error"
+        />
+        {errors.sold && <div id="sold-error" className="error">{errors.sold}</div>}
+      </div>
+      <div className="form-group">
+        <label htmlFor="description">
+          <FontAwesomeIcon icon={faInfoCircle} /> Description:
+        </label>
+        <input
+          type="text"
+          name="description"
+          id="description"
+          className="form-control"
+          value={formData.description}
+          onChange={handleInputChange}
+          aria-describedby="description-error"
+        />
+        {errors.description && <div id="description-error" className="error">{errors.description}</div>}
+      </div>
+      <div className="form-group">
+        <label htmlFor="stock">
+          <FontAwesomeIcon icon={faInfoCircle} /> Stock:
+        </label>
+        <input
+          type="number"
+          name="stock"
+          id="stock"
+          className="form-control"
+          value={formData.stock}
+          onChange={handleInputChange}
+          aria-describedby="stock-error"
+        />
+        {errors.stock && <div id="stock-error" className="error">{errors.stock}</div>}
+      </div>
+      <div className="form-group">
+        <label htmlFor="image1">
+          <FontAwesomeIcon icon={faInfoCircle} /> Image 1:
+        </label>
+        <input
+          type="text"
+          name="image1"
+          id="image1"
+          className="form-control"
+          value={formData.image1}
+          onChange={handleInputChange}
+          aria-describedby="image1-error"
+        />
+        {errors.image1 && <div id="image1-error" className="error">{errors.image1}</div>}
+      </div>
+      <div className="form-group">
+        <label htmlFor="image2">
+          <FontAwesomeIcon icon={faInfoCircle} /> Image 2:
+        </label>
+        <input
+          type="text"
+          name="image2"
+          id="image2"
+          className="form-control"
+          value={formData.image2}
+          onChange={handleInputChange}
+          aria-describedby="image2-error"
+        />
+        {errors.image2 && <div id="image2-error" className="error">{errors.image2}</div>}
+      </div>
+      <div className="form-group">
+        <label htmlFor="image3">
+          <FontAwesomeIcon icon={faInfoCircle} /> Image 3:
+        </label>
+        <input
+          type="text"
+          name="image3"
+          id="image3"
+          className="form-control"
+          value={formData.image3}
+          onChange={handleInputChange}
+          aria-describedby="image3-error"
+        />
+        {errors.image3 && <div id="image3-error" className="error">{errors.image3}</div>}
+      </div>
+      <div className="form-group">
+        <label htmlFor="image4">
+          <FontAwesomeIcon icon={faInfoCircle} /> Image 4:
+        </label>
+        <input
+          type="text"
+          name="image4"
+          id="image4"
+          className="form-control"
+          value={formData.image4}
+          onChange={handleInputChange}
+          aria-describedby="image4-error"
+        />
+        {errors.image4 && <div id="image4-error" className="error">{errors.image4}</div>}
+      </div>
+      <div className="form-group">
+        <label htmlFor="category_id">
+          <FontAwesomeIcon icon={faInfoCircle} /> Category ID:
+        </label>
+        <input
+          type="text"
+          name="category_id"
+          id="category_id"
+          className="form-control"
+          value={formData.category_id}
+          onChange={handleInputChange}
+          aria-describedby="category_id-error"
+        />
+        {errors.category_id && <div id="category_id-error" className="error">{errors.category_id}</div>}
+      </div>
+      <button type="submit" className="btn" disabled={isSubmitting}>
+        {isSubmitting ? 'Updating...' : 'Update Product'}
+      </button>
+    </form>
+  </main>
+  
   );
 
 

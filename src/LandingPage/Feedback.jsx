@@ -98,6 +98,7 @@ function Feedback() {
       </div>
       <div className="bottomSection">
         <iframe
+          title="rolex"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.665394053228!2d103.84621207394488!3d1.3774387614886814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da16e96db0a1ab%3A0x3d0be54fbbd6e1cd!2sSingapore%20Institute%20of%20Technology%20(SIT%40NYP)!5e0!3m2!1sen!2ssg!4v1712287155919!5m2!1sen!2ssg"
           width="100%"
           height="450"

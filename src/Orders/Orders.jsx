@@ -10,7 +10,7 @@ function Orders() {
         const response = await fetch('http://35.212.170.89:5000/api/order/read.php?user='+userEmail);
         const data = await response.json();
 
-        if(data.message != "No Orders Found"){
+        if(data.message !== "No Orders Found"){
           setOrders(data.data);
         }
         
@@ -23,7 +23,7 @@ function Orders() {
   }, []);
 
   return (
-    <div className="container mt-5">
+    <main className="container mt-5">
       <h1>Past Orders</h1>
       {orders.length > 0 ? orders.map((order) => (
         <div key={order.id} className="mb-5">
@@ -44,9 +44,8 @@ function Orders() {
               {order.orderObj.map((item) => (
                 <tr key={item.id}>
                   <td>
-                    {item.name}
                     <div>
-                      <img src={`http://35.212.170.89:5000/images/${item.images.img1}`} alt={item.name} style={{ width: '100px' }}/>
+                      <img src={`http://35.212.170.89:5000/images/${item.images.img1}`} alt={`${item.name} image`} style={{ width: '100px' }}/>
                     </div>
                   </td>
                   <td>${item.price}</td>
@@ -61,7 +60,7 @@ function Orders() {
       )) : (
         <p>No orders found.</p>
       )}
-    </div>
+    </main>
   );
 }
 

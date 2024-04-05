@@ -6,18 +6,17 @@ import DOMPurify from 'dompurify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faDollarSign, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
-
 const ProductForm = () => {
   // Define the validation schema using Yup
   const validationSchema = Yup.object().shape({
-    // name: Yup.string()
-    //   .required('Please enter a name for your new product')
-    //   .matches(/^[a-zA-Z0-9\s]+$/, 'Only letters, numbers, and spaces are allowed'),
+    name: Yup.string()
+      .required('Please enter a name for your new product')
+      .matches(/^[a-zA-Z0-9\s]+$/, 'Only letters, numbers, and spaces are allowed'),
     price: Yup.number()
       .typeError('Please enter a valid price')
       .required('Please enter a price for your new product')
       .positive('Price must be positive'),
-    // description: Yup.string().required('Please enter a product description'),
+    description: Yup.string().required('Please enter a product description'),
     stock: Yup.number()
       .required('Please enter product stock')
       .positive('Stock must be positive')
@@ -57,8 +56,6 @@ const ProductForm = () => {
       category_id: DOMPurify.sanitize(values.category_id),
     };
 
-
-
     // Log the values to the console before the network request
     console.log('Sanitized values being sent to the server:', sanitizedValues);
 
@@ -71,7 +68,7 @@ const ProductForm = () => {
       body: JSON.stringify(sanitizedValues),
     };
 
-      // Use fetch to send the post request
+    // Use fetch to send the post request
     fetch('http://35.212.170.89:5000/api/product/create.php', fetchOptions)
       .then(response => {
         if (!response.ok) {
@@ -97,7 +94,7 @@ const ProductForm = () => {
   };
 
   return (
-    <div className="product-form-container">
+    <main className="product-form-container">
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -120,30 +117,42 @@ const ProductForm = () => {
               <Field type="number" name="price" className="form-control" />
               <ErrorMessage name="price" component="div" className="error" />
             </div>
-            <label htmlFor="stock">Stock:</label>
 
-            <Field type="number" name="stock" className="form-control" />
-            <ErrorMessage name="stock" component="div" className="error" />
+            <div className="form-group">
+              <label htmlFor="stock">Stock:</label>
+              <Field type="number" name="stock" className="form-control" />
+              <ErrorMessage name="stock" component="div" className="error" />
+            </div>
 
-            <label htmlFor="image1">Image 1:</label>
-            <Field type="text" name="image1" className="form-control" />
-            <ErrorMessage name="image1" component="div" className="error" />
+            <div className="form-group">
+              <label htmlFor="image1">Image 1:</label>
+              <Field type="text" name="image1" className="form-control" />
+              <ErrorMessage name="image1" component="div" className="error" />
+            </div>
 
-            <label htmlFor="image2">Image 2:</label>
-            <Field type="text" name="image2" className="form-control" />
-            <ErrorMessage name="image2" component="div" className="error" />
+            <div className="form-group">
+              <label htmlFor="image2">Image 2:</label>
+              <Field type="text" name="image2" className="form-control" />
+              <ErrorMessage name="image2" component="div" className="error" />
+            </div>
 
-            <label htmlFor="image3">Image 3:</label>
-            <Field type="text" name="image3" className="form-control" />
-            <ErrorMessage name="image3" component="div" className="error" />
+            <div className="form-group">
+              <label htmlFor="image3">Image 3:</label>
+              <Field type="text" name="image3" className="form-control" />
+              <ErrorMessage name="image3" component="div" className="error" />
+            </div>
 
-            <label htmlFor="image4">Image 4:</label>
-            <Field type="text" name="image4" className="form-control" />
-            <ErrorMessage name="image4" component="div" className="error" />
+            <div className="form-group">
+              <label htmlFor="image4">Image 4:</label>
+              <Field type="text" name="image4" className="form-control" />
+              <ErrorMessage name="image4" component="div" className="error" />
+            </div>
 
-            <label htmlFor="category_id">Category ID:</label>
-            <Field type="number" name="category_id" className="form-control" />
-            <ErrorMessage name="category_id" component="div"   className="error" />
+            <div className="form-group">
+              <label htmlFor="category_id">Category ID:</label>
+              <Field type="number" name="category_id" className="form-control" />
+              <ErrorMessage name="category_id" component="div" className="error" />
+            </div>
 
             <div className="form-group">
               <label htmlFor="description">
@@ -159,7 +168,7 @@ const ProductForm = () => {
           </Form>
         )}
       </Formik>
-    </div>
+    </main>
   );
 };
 
