@@ -1,6 +1,6 @@
 // Feedback.jsx
 import { useState } from 'react';
-import './Feedback.css'; 
+import './Feedback.css';
 
 function Feedback() {
   // Example state and form handler if you need them
@@ -9,16 +9,34 @@ function Feedback() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Process the feedback form submission here
-    alert('Your message has been sent. Thank you for providing feedback!');
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setMessage(''); // Reset form inputs after submission
-  };
+    try {
+      const response = await fetch('http://35.212.170.89:5000/api/feedback/create.php',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ fname: firstName, lname: lastName, email: email, message: message }),
+        });
 
+      if (!response.ok) {
+        throw new Error('Failed to submit feedback');
+      }
+
+      alert('Your message has been sent. Thank you for providing feedback!');
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setMessage(''); // Reset form inputs after submission
+    }
+    catch (error) {
+      console.error('Error submitting feedback:', error);
+      alert('An error occurred while submitting feedback. Please try again later.');
+    }
+  }
   return (
     <main id="feedbackMainContent">
       <div className="topSection">
@@ -83,7 +101,7 @@ function Feedback() {
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.665394053228!2d103.84621207394488!3d1.3774387614886814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da16e96db0a1ab%3A0x3d0be54fbbd6e1cd!2sSingapore%20Institute%20of%20Technology%20(SIT%40NYP)!5e0!3m2!1sen!2ssg!4v1712287155919!5m2!1sen!2ssg"
           width="100%"
           height="450"
-          style={{ border: '0' }} 
+          style={{ border: '0' }}
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
