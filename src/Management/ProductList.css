@@ -45,3 +45,7 @@
   flex: 1; /* Allows card body to expand and push the footer down */
   padding: 15px; /* Ensures consistent padding */
 }
+
+.card-title {
+  font-size: 4vh;
+}

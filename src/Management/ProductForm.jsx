@@ -106,7 +106,7 @@ const ProductForm = () => {
               <label htmlFor="name">
                 <FontAwesomeIcon icon={faUser} /> Name:
               </label>
-              <Field type="text" name="name" className="form-control" />
+              <Field type="text"  placeholder="Enter new product name"  name="name" className="form-control" />
               <ErrorMessage name="name" component="div" className="error" />
             </div>
 
@@ -114,43 +114,43 @@ const ProductForm = () => {
               <label htmlFor="price">
                 <FontAwesomeIcon icon={faDollarSign} /> Price:
               </label>
-              <Field type="number" name="price" className="form-control" />
+              <Field type="number" name="price" placeholder="Enter new product price" className="form-control" />
               <ErrorMessage name="price" component="div" className="error" />
             </div>
 
             <div className="form-group">
               <label htmlFor="stock">Stock:</label>
-              <Field type="number" name="stock" className="form-control" />
+              <Field type="number" name="stock" placeholder="Enter new stock quantity " className="form-control" />
               <ErrorMessage name="stock" component="div" className="error" />
             </div>
 
             <div className="form-group">
               <label htmlFor="image1">Image 1:</label>
-              <Field type="text" name="image1" className="form-control" />
+              <Field type="text" name="image1" placeholder="Enter new image 1" className="form-control" />
               <ErrorMessage name="image1" component="div" className="error" />
             </div>
 
             <div className="form-group">
               <label htmlFor="image2">Image 2:</label>
-              <Field type="text" name="image2" className="form-control" />
+              <Field type="text" name="image2" placeholder="Enter new image 2 (optional)"  className="form-control" />
               <ErrorMessage name="image2" component="div" className="error" />
             </div>
 
             <div className="form-group">
               <label htmlFor="image3">Image 3:</label>
-              <Field type="text" name="image3" className="form-control" />
+              <Field type="text" name="image3" placeholder="Enter new image 3 (optional)"  className="form-control" />
               <ErrorMessage name="image3" component="div" className="error" />
             </div>
 
             <div className="form-group">
               <label htmlFor="image4">Image 4:</label>
-              <Field type="text" name="image4" className="form-control" />
+              <Field type="text" name="image4" placeholder="Enter new image 4 (optional)"  className="form-control" />
               <ErrorMessage name="image4" component="div" className="error" />
             </div>
 
             <div className="form-group">
               <label htmlFor="category_id">Category ID:</label>
-              <Field type="number" name="category_id" className="form-control" />
+              <Field type="number" name="category_id" placeholder="Enter new value category id"  className="form-control" />
               <ErrorMessage name="category_id" component="div" className="error" />
             </div>
 
@@ -158,7 +158,7 @@ const ProductForm = () => {
               <label htmlFor="description">
                 <FontAwesomeIcon icon={faInfoCircle} /> Description:
               </label>
-              <Field type="text" name="description" className="form-control" />
+              <Field type="text" name="description"  placeholder="Enter new product description"  className="form-control" />
               <ErrorMessage name="description" component="div" className="error" />
             </div>
 

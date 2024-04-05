@@ -29,7 +29,7 @@ const ProductList = () => {
                 )}
               </div>
               <div className="card-body">
-                <h3 className="card-title">{product.name}</h3>
+                <h1 className="card-title">{product.name}</h1>
                 <p className="card-text"><strong>ID:</strong> {product.id}</p> {/* Displaying the product ID */}
                 <p className="card-text">{product.description}</p>
                 <p className="card-text">${product.price}</p>
