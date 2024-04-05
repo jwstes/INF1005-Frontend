@@ -49,3 +49,53 @@
 .card-title {
   font-size: 4vh;
 }
+
+/* Ensure the grid adapts to different screen sizes */
+.container-fluid {
+  padding: 0 15px; /* Add padding on smaller screens */
+}
+
+.row {
+  margin: 0; /* Remove default margin for tighter control */
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 768px) {
+  .col-sm-6 {
+    flex: 0 0 50%; /* Adjust grid layout for smaller screens */
+    max-width: 50%; /* Adjust grid layout for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .col-sm-6 {
+    flex: 0 0 100%; /* Make each card full width on very small screens */
+    max-width: 100%; /* Make each card full width on very small screens */
+  }
+}
+
+.card-img-top {
+  display: block; /* Ensure img-top div behaves as a block */
+  width: 100%; /* Ensure the div takes full width */
+  height: auto; /* Adjust height automatically */
+  overflow: hidden; /* Prevents overflow */
+}
+
+.card-img-top img {
+  width: 100%; /* Make images responsive */
+  height: 200px; /* Fixed height, or 'auto' for automatic adjustment */
+  object-fit: cover; /* Cover the container without losing aspect ratio */
+}
+
+/* Improve card title responsiveness */
+.card-title {
+  font-size: 2.5vh; /* Adjust title size based on viewport height */
+  margin-top: 10px; /* Adjust spacing as needed */
+}
+
+/* Adjust card body padding for smaller screens */
+@media (max-width: 768px) {
+  .card-body {
+    padding: 10px; /* Reduce padding on smaller screens */
+  }
+}

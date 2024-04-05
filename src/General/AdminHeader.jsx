@@ -42,15 +42,15 @@ function AdminHeader() {
                       </ul>
                       <form className='d-flex'>
 
-                        <div class="dropdown">
-                            <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div className="dropdown">
+                            <button className="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Logged In As: {userEmail}
                             </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/cart">My Cart</a></li>
-                                <li><a class="dropdown-item" href="/myOrders">My Orders</a></li>
-                                <li><a class="dropdown-item" href="/management">Management</a></li>
-                                <li><a class="dropdown-item" href="#" onClick={handleLogout}>Logout</a></li>
+                            <ul className="dropdown-menu">
+                                <li><a className="dropdown-item" href="/cart">My Cart</a></li>
+                                <li><a className="dropdown-item" href="/myOrders">My Orders</a></li>
+                                <li><a className="dropdown-item" href="/management">Management</a></li>
+                                <li><a className="dropdown-item" href="#" onClick={handleLogout}>Logout</a></li>
                             </ul>
                         </div>
 
